@@ -22,6 +22,7 @@ dependencies:
   objective_c: ^9.2.2
   web: ^1.0.0
   cross_file: ^0.3.5+1
+  path_provider: ^2.1.5
 
 dev_dependencies:
   test: ^1.28.0

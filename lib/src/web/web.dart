@@ -10,9 +10,8 @@ final class VideoConverterWeb implements VideoConverterPlatform {
   const VideoConverterWeb();
 
   @override
-  Future<void> convert({
+  Future<XFile> convert({
     required XFile input,
-    required XFile output,
     VideoConfig config = const VideoConfig(),
   }) async {
     final bytes = await input.readAsBytes();
@@ -82,12 +81,10 @@ final class VideoConverterWeb implements VideoConverterPlatform {
     videoElement.currentTime = startSeconds;
 
     // Create Stream from Canvas
-    // 30fps default, or try to match video? 30 is safe for captureStream.
     final stream = canvas.captureStream(30);
 
     // Setup MediaRecorder
     const mimeType = 'video/mp4';
-    // Fallback logic could be added but user targeted Chrome mp4.
 
     // Check support
     if (!web.MediaRecorder.isTypeSupported(mimeType)) {
@@ -124,7 +121,6 @@ final class VideoConverterWeb implements VideoConverterPlatform {
 
     void processFrame(num time) {
       if (videoElement.paused || videoElement.ended) {
-        // If ended, stop.
         if (!processingCompleter.isCompleted) {
           recorder.stop();
           processingCompleter.complete();
@@ -142,7 +138,6 @@ final class VideoConverterWeb implements VideoConverterPlatform {
         return;
       }
 
-      // Use standard drawImage
       ctx.drawImage(videoElement, 0, 0, targetWidth, targetHeight);
 
       web.window.requestAnimationFrame(processFrame.toJS);
@@ -159,19 +154,12 @@ final class VideoConverterWeb implements VideoConverterPlatform {
       web.BlobPropertyBag(type: mimeType),
     );
 
-    // Trigger download
+    web.URL.revokeObjectURL(url);
+
+    // Create new URL for the result
     final resultUrl = web.URL.createObjectURL(finalBlob);
 
-    // We create an anchor but don't append it to body, just click.
-    web.HTMLAnchorElement()
-      ..href = resultUrl
-      ..download = output.name.isNotEmpty ? output.name : "output.mp4"
-      ..click();
-
-    web.URL.revokeObjectURL(url);
-    // Revoke resultUrl later
-    Future.delayed(const Duration(seconds: 1), () {
-      web.URL.revokeObjectURL(resultUrl);
-    });
+    // Return result as XFile using Blob URL
+    return XFile(resultUrl, name: 'output.mp4', mimeType: mimeType);
   }
 }

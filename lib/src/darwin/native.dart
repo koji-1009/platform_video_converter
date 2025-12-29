@@ -4,6 +4,7 @@ import 'dart:ffi' as ffi;
 import 'package:cross_file/cross_file.dart';
 import 'package:ffi/ffi.dart';
 import 'package:objective_c/objective_c.dart' as objc;
+import 'package:path_provider/path_provider.dart';
 import 'package:platform_video_converter/src/models.dart';
 import 'package:platform_video_converter/src/video_converter_platform_interface.dart';
 
@@ -14,11 +15,16 @@ class VideoConverterDarwin implements VideoConverterPlatform {
 
   @override
   @override
-  Future<void> convert({
+  @override
+  Future<XFile> convert({
     required XFile input,
-    required XFile output,
     VideoConfig config = const VideoConfig(),
   }) async {
+    // Generate internal temp file
+    final tempDir = await getTemporaryDirectory();
+    final outputName = 'converted_${DateTime.now().millisecondsSinceEpoch}.mp4';
+    final outputFilePath = '${tempDir.path}/$outputName';
+
     await using((arena) async {
       final nsStrInput = input.path.toNSString();
       final inputUrl = objc.NSURL.fileURLWithPath(nsStrInput);
@@ -33,7 +39,7 @@ class VideoConverterDarwin implements VideoConverterPlatform {
         presetName: preset,
       );
 
-      final nsStrOutput = output.path.toNSString();
+      final nsStrOutput = outputFilePath.toNSString();
       final outputUrl = objc.NSURL.fileURLWithPath(nsStrOutput);
       session.outputURL = outputUrl;
 
@@ -178,5 +184,7 @@ class VideoConverterDarwin implements VideoConverterPlatform {
         }
       }
     });
+
+    return XFile(outputFilePath);
   }
 }

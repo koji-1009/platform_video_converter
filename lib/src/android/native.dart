@@ -3,6 +3,7 @@ import 'dart:async';
 
 import 'package:cross_file/cross_file.dart';
 import 'package:jni/jni.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:platform_video_converter/src/models.dart';
 import 'package:platform_video_converter/src/video_converter_platform_interface.dart';
 
@@ -12,11 +13,15 @@ class VideoConverterAndroid implements VideoConverterPlatform {
   const VideoConverterAndroid();
 
   @override
-  Future<void> convert({
+  Future<XFile> convert({
     required XFile input,
-    required XFile output,
     VideoConfig config = const VideoConfig(),
   }) async {
+    // Generate internal temp file
+    final tempDir = await getTemporaryDirectory();
+    final outputName = 'converted_${DateTime.now().millisecondsSinceEpoch}.mp4';
+    final outputFilePath = '${tempDir.path}/$outputName';
+
     // Use 'using' to manage JNI resources automatically
     await using((arena) async {
       final contextObj = Jni.androidApplicationContext;
@@ -66,7 +71,6 @@ class VideoConverterAndroid implements VideoConverterPlatform {
           effectsList.add(Effect.fromReference(presentation.reference));
         }
       }
-      // Note: Presentation.createForWidth is not typically available in this version of Media3, ignoring width-only case.
 
       final effects = Effects(audioProcessors, effectsList)..releasedBy(arena);
 
@@ -110,7 +114,6 @@ class VideoConverterAndroid implements VideoConverterPlatform {
           final mime = MimeTypes.VIDEO_H264!..releasedBy(arena);
           transformerBuilder.setVideoMimeType(mime);
         case .mov:
-          // Default behavior for other formats or explicit no-op
           break;
       }
 
@@ -143,10 +146,12 @@ class VideoConverterAndroid implements VideoConverterPlatform {
       // Use start with EditedMediaItem
       transformer.start$1(
         editedMediaItem,
-        output.path.toJString()..releasedBy(arena),
+        outputFilePath.toJString()..releasedBy(arena),
       );
 
       await completer.future;
     });
+
+    return XFile(outputFilePath);
   }
 }

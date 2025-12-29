@@ -15,13 +15,12 @@ export 'package:cross_file/cross_file.dart';
 export 'src/models.dart';
 
 abstract final class VideoConverter {
-  static Future<void> convert({
+  static Future<XFile> convert({
     required XFile input,
-    required XFile output,
     VideoConfig config = const VideoConfig(),
   }) async {
     final platform = _getPlatformForTarget(defaultTargetPlatform);
-    await platform.convert(input: input, output: output, config: config);
+    return platform.convert(input: input, config: config);
   }
 }
 

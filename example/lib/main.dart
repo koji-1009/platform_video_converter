@@ -68,8 +68,6 @@ class _MyPageState extends State<MyPage> {
     });
 
     try {
-      final outputFile = await _platformServices.prepareOutputFile();
-
       final config = VideoConfig(
         format: VideoFormat.mp4,
         startTime: const Duration(seconds: 0),
@@ -80,14 +78,13 @@ class _MyPageState extends State<MyPage> {
       );
 
       // Perform conversion
-      await VideoConverter.convert(
+      final resultFile = await VideoConverter.convert(
         input: _inputVideo!,
-        output: outputFile,
         config: config,
       );
 
       // Save/Handle Result
-      final resultMessage = await _platformServices.saveResult(outputFile);
+      final resultMessage = await _platformServices.saveResult(resultFile);
 
       setState(() {
         _isConverting = false;
@@ -99,7 +96,7 @@ class _MyPageState extends State<MyPage> {
         await _controller!.pause();
         await _controller!.dispose();
       }
-      _playVideo(outputFile);
+      _playVideo(resultFile);
     } catch (e) {
       setState(() {
         _isConverting = false;

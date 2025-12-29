@@ -7,8 +7,7 @@ abstract class PlatformServices {
   /// Create a VideoPlayerController appropriate for the platform
   VideoPlayerController createVideoPlayerController(XFile file);
 
-  /// Prepare an output XFile for conversion
-  Future<XFile> prepareOutputFile();
+  // Output file preparation is now handled internally by the package
 
   /// Save the converted file to the gallery or trigger download
   Future<String> saveResult(XFile resultFile);

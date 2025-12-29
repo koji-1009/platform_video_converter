@@ -6,9 +6,8 @@ final class VideoConverterAndroid implements VideoConverterPlatform {
   const VideoConverterAndroid();
 
   @override
-  Future<void> convert({
+  Future<XFile> convert({
     required XFile input,
-    required XFile output,
     VideoConfig config = const VideoConfig(),
   }) async => throw UnimplementedError();
 }
