@@ -14,8 +14,6 @@ class VideoConverterDarwin implements VideoConverterPlatform {
   const VideoConverterDarwin();
 
   @override
-  @override
-  @override
   Future<XFile> convert({
     required XFile input,
     VideoConfig config = const VideoConfig(),
