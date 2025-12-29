@@ -1,0 +1,28 @@
+# Regenerate bindings with `dart run jnigen --config jnigen.yaml`.
+android_sdk_config:
+  add_gradle_deps: true
+  android_example: 'example/'
+
+output:
+  dart:
+    path: lib/src/android/bindings.g.dart
+    structure: single_file
+
+source_path:
+  - 'java/'
+
+classes:
+  - 'androidx.media3.transformer.Transformer'
+  - 'androidx.media3.transformer.Composition'
+  - 'androidx.media3.transformer.ExportResult'
+  - 'androidx.media3.transformer.EditedMediaItem'
+  - 'androidx.media3.transformer.Effects'
+  - 'androidx.media3.transformer.DefaultEncoderFactory'
+  - 'androidx.media3.transformer.Codec'
+  - 'androidx.media3.common.MimeTypes'
+  - 'androidx.media3.common.Effect'
+  - 'androidx.media3.effect.ScaleAndRotateTransformation'
+  - 'androidx.media3.effect.Presentation'
+  - 'androidx.media3.transformer.VideoEncoderSettings'
+  - 'androidx.media3.common.MediaItem'
+  - 'java.io.File'
