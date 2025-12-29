@@ -10,9 +10,14 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  
+
   platform_video_converter:
     path: ../
+  image_picker: ^1.2.1
+  path_provider: ^2.1.5
+  video_player: ^2.10.1
+  cross_file: ^1.0.0
+  gal: ^2.3.2
 
 dev_dependencies:
   flutter_test:
