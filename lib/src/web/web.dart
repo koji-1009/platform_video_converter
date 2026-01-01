@@ -112,17 +112,29 @@ final class VideoConverterWeb implements VideoConverterPlatform {
         }
       } catch (e) {
         // Fallback or ignore if AudioContext fails (e.g. strict autoplay policy)
-        print("Web Audio setup failed: $e");
+        // print("Web Audio setup failed: $e");
       }
     }
 
     // Setup MediaRecorder
-    const mimeType = 'video/mp4';
+    final mimeType = switch (config.format) {
+      VideoFormat.mp4 => 'video/mp4',
+      VideoFormat.webm => 'video/webm',
+      // Likely unsupported on many browsers
+      VideoFormat.mov => 'video/quicktime',
+    };
 
     // Check support
     if (!web.MediaRecorder.isTypeSupported(mimeType)) {
+      // Fallback strategies or detailed error
+      if (config.format == VideoFormat.mp4 &&
+          web.MediaRecorder.isTypeSupported('video/webm')) {
+        throw Exception(
+          "MIME type '$mimeType' is not supported. Try using VideoFormat.webm.",
+        );
+      }
       throw Exception(
-        "MIME type 'video/mp4' is not supported by this browser.",
+        "MIME type '$mimeType' is not supported by this browser.",
       );
     }
 
@@ -208,7 +220,12 @@ final class VideoConverterWeb implements VideoConverterPlatform {
     final resultUrl = web.URL.createObjectURL(finalBlob);
 
     // Return result as XFile using Blob URL
-    return XFile(resultUrl, name: 'output.mp4', mimeType: mimeType);
+    final ext = switch (config.format) {
+      VideoFormat.mp4 => 'mp4',
+      VideoFormat.webm => 'webm',
+      VideoFormat.mov => 'mov',
+    };
+    return XFile(resultUrl, name: 'output.$ext', mimeType: mimeType);
   }
 
   @override

@@ -20,7 +20,15 @@ class VideoConverterAndroid implements VideoConverterPlatform {
   }) async {
     // Generate internal temp file
     final tempDir = await getTemporaryDirectory();
-    final outputName = 'converted_${DateTime.now().millisecondsSinceEpoch}.mp4';
+    final ext = switch (config.format) {
+      VideoFormat.mp4 => 'mp4',
+      VideoFormat.webm => 'webm',
+      VideoFormat.mov => throw UnsupportedError(
+        "MOV format is not supported on Android",
+      ),
+    };
+    final outputName =
+        'converted_${DateTime.now().millisecondsSinceEpoch}.$ext';
     final outputFilePath = '${tempDir.path}/$outputName';
 
     // Use 'using' to manage JNI resources automatically
@@ -141,13 +149,14 @@ class VideoConverterAndroid implements VideoConverterPlatform {
         );
       }
 
-      switch (config.format) {
-        case .mp4:
-          final mime = MimeTypes.VIDEO_H264!..releasedBy(arena);
-          transformerBuilder.setVideoMimeType(mime);
-        case .mov:
-          break;
-      }
+      final mime = switch (config.format) {
+        VideoFormat.mp4 => MimeTypes.VIDEO_H264!,
+        VideoFormat.webm => MimeTypes.VIDEO_VP9!,
+        VideoFormat.mov => throw UnsupportedError(
+          "MOV format is not supported on Android",
+        ),
+      }..releasedBy(arena);
+      transformerBuilder.setVideoMimeType(mime);
 
       final transformer = transformerBuilder.build();
       if (transformer == null) {

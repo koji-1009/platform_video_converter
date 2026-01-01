@@ -43,8 +43,11 @@ class VideoConverterDarwin implements VideoConverterPlatform {
       session.outputURL = outputUrl;
 
       final fileType = switch (config.format) {
-        .mp4 => "public.mpeg-4".toNSString(),
-        .mov => "com.apple.quicktime-movie".toNSString(),
+        VideoFormat.mp4 => "public.mpeg-4".toNSString(),
+        VideoFormat.mov => "com.apple.quicktime-movie".toNSString(),
+        VideoFormat.webm => throw UnsupportedError(
+          "WebM is not supported on iOS/macOS",
+        ),
       };
       session.outputFileType = fileType;
 

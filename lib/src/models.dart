@@ -7,6 +7,11 @@ enum VideoFormat {
   /// QuickTime File Format (.mov).
   /// Primarily for Apple platforms. Support on Web/Android varies.
   mov,
+
+  /// WebM container (.webm).
+  /// Robust support on Web (Chrome/Firefox) and Android.
+  /// Not supported on iOS/macOS.
+  webm,
 }
 
 /// Configuration options for video conversion.

@@ -35,6 +35,7 @@ class _MyPageState extends State<MyPage> {
   VideoPlayerController? _controller;
 
   // Config State
+  VideoFormat _format = VideoFormat.mp4;
   int? _fps;
   bool _isMuted = false;
   double _volume = 1.0;
@@ -201,6 +202,30 @@ class _MyPageState extends State<MyPage> {
                       onChanged: _isMuted
                           ? null
                           : (v) => setState(() => _volume = v),
+                    ),
+                  ],
+                ),
+                Column(
+                  children: [
+                    const Text("Format"),
+                    DropdownButton<VideoFormat>(
+                      value: _format,
+                      items: const [
+                        DropdownMenuItem(
+                          value: VideoFormat.mp4,
+                          child: Text("MP4"),
+                        ),
+                        DropdownMenuItem(
+                          value: VideoFormat.mov,
+                          child: Text("MOV"),
+                        ),
+                        DropdownMenuItem(
+                          value: VideoFormat.webm,
+                          child: Text("WebM"),
+                        ),
+                      ],
+                      onChanged: (v) =>
+                          setState(() => _format = v ?? VideoFormat.mp4),
                     ),
                   ],
                 ),
