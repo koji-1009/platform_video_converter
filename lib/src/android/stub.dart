@@ -10,4 +10,7 @@ final class VideoConverterAndroid implements VideoConverterPlatform {
     required XFile input,
     VideoConfig config = const VideoConfig(),
   }) async => throw UnimplementedError();
+
+  @override
+  Future<void> cleanup(XFile file) async => throw UnimplementedError();
 }

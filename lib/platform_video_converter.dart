@@ -23,23 +23,28 @@ abstract final class VideoConverter {
   ///
   /// *   **Android/iOS/macOS**: The returned [XFile] points to a temporary file on the device.
   ///     The file is located in the application's temporary directory and should be managed
-  ///     (moved or deleted) by the caller if necessary.
+  ///     or cleaned up using [cleanup] when no longer needed.
   ///
   /// *   **Web**: The returned [XFile] contains a **Blob URL** in its `path` property.
-  ///     **Important**: To prevent memory leaks, you must revoke this URL when it is no longer needed.
-  ///     Example:
-  ///     ```dart
-  ///     import 'package:web/web.dart' as web;
-  ///     // ... after usage
-  ///     web.URL.revokeObjectURL(result.path);
-  ///     ```
-  ///     Unsupported browsers (e.g., Firefox) or missing codecs may throw an exception.
+  ///     **Important**: To prevent memory leaks, you must clean up this URL using [cleanup]
+  ///     when it is no longer needed.
   static Future<XFile> convert({
     required XFile input,
     VideoConfig config = const VideoConfig(),
   }) async {
     final platform = _getPlatformForTarget(defaultTargetPlatform);
     return platform.convert(input: input, config: config);
+  }
+
+  /// Cleans up the output file/resource.
+  ///
+  /// Call this method when the converted video file is no longer needed.
+  ///
+  /// *   **Android/iOS/macOS**: Deletes the temporary file from the device storage.
+  /// *   **Web**: Revokes the Blob URL to release memory.
+  static Future<void> cleanup(XFile file) async {
+    final platform = _getPlatformForTarget(defaultTargetPlatform);
+    return platform.cleanup(file);
   }
 }
 

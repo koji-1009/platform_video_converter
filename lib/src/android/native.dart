@@ -1,5 +1,6 @@
 // ignore_for_file: invalid_use_of_internal_member
 import 'dart:async';
+import 'dart:io' as io;
 
 import 'package:cross_file/cross_file.dart';
 import 'package:jni/jni.dart';
@@ -153,5 +154,13 @@ class VideoConverterAndroid implements VideoConverterPlatform {
     });
 
     return XFile(outputFilePath);
+  }
+
+  @override
+  Future<void> cleanup(XFile file) async {
+    final ioFile = io.File(file.path);
+    if (await ioFile.exists()) {
+      await ioFile.delete();
+    }
   }
 }

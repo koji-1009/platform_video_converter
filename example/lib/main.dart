@@ -28,6 +28,7 @@ class MyPage extends StatefulWidget {
 
 class _MyPageState extends State<MyPage> {
   XFile? _inputVideo;
+  XFile? _outputVideo;
 
   bool _isConverting = false;
   String _statusMessage = '';
@@ -68,6 +69,12 @@ class _MyPageState extends State<MyPage> {
     });
 
     try {
+      // Cleanup previous output if exists
+      if (_outputVideo != null) {
+        await VideoConverter.cleanup(_outputVideo!);
+        _outputVideo = null;
+      }
+
       final config = VideoConfig(
         format: VideoFormat.mp4,
         startTime: const Duration(seconds: 0),
@@ -88,6 +95,7 @@ class _MyPageState extends State<MyPage> {
 
       setState(() {
         _isConverting = false;
+        _outputVideo = resultFile;
         _statusMessage = 'Success! $resultMessage';
       });
 
@@ -103,6 +111,15 @@ class _MyPageState extends State<MyPage> {
         _statusMessage = 'Error: $e';
       });
     }
+  }
+
+  @override
+  void dispose() {
+    _controller?.dispose();
+    if (_outputVideo != null) {
+      VideoConverter.cleanup(_outputVideo!);
+    }
+    super.dispose();
   }
 
   @override

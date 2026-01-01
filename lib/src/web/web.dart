@@ -162,4 +162,9 @@ final class VideoConverterWeb implements VideoConverterPlatform {
     // Return result as XFile using Blob URL
     return XFile(resultUrl, name: 'output.mp4', mimeType: mimeType);
   }
+
+  @override
+  Future<void> cleanup(XFile file) async {
+    web.URL.revokeObjectURL(file.path);
+  }
 }

@@ -10,4 +10,7 @@ abstract interface class VideoConverterPlatform {
     required XFile input,
     VideoConfig config = const VideoConfig(),
   });
+
+  /// Cleanup the output file/resource.
+  Future<void> cleanup(XFile file);
 }

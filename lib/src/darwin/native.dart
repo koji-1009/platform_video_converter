@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:ffi' as ffi;
+import 'dart:io';
 
 import 'package:cross_file/cross_file.dart';
 import 'package:ffi/ffi.dart';
@@ -184,5 +185,13 @@ class VideoConverterDarwin implements VideoConverterPlatform {
     });
 
     return XFile(outputFilePath);
+  }
+
+  @override
+  Future<void> cleanup(XFile file) async {
+    final ioFile = File(file.path);
+    if (await ioFile.exists()) {
+      await ioFile.delete();
+    }
   }
 }
