@@ -19,6 +19,9 @@ class VideoConfig {
     this.bitrate,
     this.startTime,
     this.endTime,
+    this.fps,
+    this.isMuted = false,
+    this.scale = 1.0,
   });
 
   /// The output container format. Defaults to [VideoFormat.mp4].
@@ -50,4 +53,23 @@ class VideoConfig {
   ///
   /// If provided, the video will be trimmed to end at this duration.
   final Duration? endTime;
+
+  /// The target frame rate (FPS).
+  ///
+  /// If null, the original frame rate is preserved (or platform default).
+  final int? fps;
+
+  /// Whether to mute the audio.
+  ///
+  /// Defaults to false.
+  final bool isMuted;
+
+  /// The audio volume multiplier (0.0 to 1.0+).
+  ///
+  /// *   `1.0`: Original volume (default).
+  /// *   `0.0`: Muted.
+  /// *   `> 1.0`: Amplified.
+  ///
+  /// Ignored if [isMuted] is true.
+  final double scale;
 }

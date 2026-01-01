@@ -66,8 +66,8 @@ class VideoConverterDarwin implements VideoConverterPlatform {
         }
       }
 
-      // Handle Resolution (Width/Height)
-      if (config.width != null || config.height != null) {
+      // Handle Resolution (Width/Height) and Frame Rate
+      if (config.width != null || config.height != null || config.fps != null) {
         // Note: sync loading 'tracks' property might block or fail if not loaded,
         // but URLAsset usually has them. Ideally loadValuesAsynchronously.
         // For 'URLAssetWithURL', it is generally available.
@@ -78,16 +78,23 @@ class VideoConverterDarwin implements VideoConverterPlatform {
         if (tracks.count > 0) {
           final track = tracks.objectAtIndex(0) as AVAssetTrack;
           final naturalSize = track.naturalSize;
+          final nominalFrameRate =
+              track.nominalFrameRate; // Requires updated bindings
 
           double targetW = config.width?.toDouble() ?? naturalSize.width;
           double targetH = config.height?.toDouble() ?? naturalSize.height;
 
-          // Calculate missing dimension to preserve aspect ratio
+          // Aspect ratio calculation
           if (config.width != null && config.height == null) {
             targetH = naturalSize.height * (targetW / naturalSize.width);
           } else if (config.height != null && config.width == null) {
             targetW = naturalSize.width * (targetH / naturalSize.height);
           }
+
+          // Determine FPS
+          final sourceFps = nominalFrameRate > 0 ? nominalFrameRate : 30.0;
+          final targetFps = config.fps?.toDouble() ?? sourceFps;
+          final fpsInt = targetFps.toInt();
 
           final videoComposition = AVMutableVideoComposition.videoComposition();
           videoComposition.renderSize =
@@ -98,9 +105,9 @@ class VideoConverterDarwin implements VideoConverterPlatform {
           videoComposition.frameDuration =
               (arena<CMTime>()
                     ..ref.value = 1
-                    ..ref.timescale = 30
+                    ..ref.timescale = fpsInt
                     ..ref.flags = 1)
-                  .ref; // Default 30fps
+                  .ref;
 
           final instruction =
               AVMutableVideoCompositionInstruction.videoCompositionInstruction();
@@ -114,9 +121,6 @@ class VideoConverterDarwin implements VideoConverterPlatform {
                     ..ref.duration.timescale = 1000
                     ..ref.duration.flags = 1)
                   .ref;
-
-          // If we have specific clipping, we should ideally restrict instruction,
-          // but covering "all" is safe if composition length is clamped by session timeRange.
 
           final layerInstruction =
               AVMutableVideoCompositionLayerInstruction.videoCompositionLayerInstructionWithAssetTrack(
@@ -137,14 +141,6 @@ class VideoConverterDarwin implements VideoConverterPlatform {
           transform.ref.tx = 0;
           transform.ref.ty = 0;
 
-          // We might need to consider track.preferredTransform (rotation) but that adds complexity.
-          // Native binding "preferredTransform" is available.
-          // If input is rotated (e.g. portrait video), naturalSize is usually un-rotated dimensions?
-          // NO, naturalSize is dimensions of stored frames. preferredTransform handles rotation.
-          // If we just scale, we might stretch rotated video wrongly.
-          // Addressing rotation correctly usually involves applying preferredTransform THEN scaling.
-          // For MVP, we apply simple scaling.
-
           final zeroTime = arena<CMTime>()
             ..ref.value = 0
             ..ref.timescale = 1000
@@ -162,6 +158,40 @@ class VideoConverterDarwin implements VideoConverterPlatform {
           videoComposition.instructions = instructionsArr;
 
           session.videoComposition = videoComposition;
+        }
+      }
+
+      // Handle Audio Control (Mute/Volume)
+      if (config.isMuted || config.scale != 1.0) {
+        final audioMediaType = "soun".toNSString(); // AVMediaTypeAudio
+        final audioTracks = asset.tracksWithMediaType(audioMediaType);
+
+        if (audioTracks.count > 0) {
+          final audioMix = AVMutableAudioMix.audioMix();
+          final inputParamsArray = objc.NSMutableArray.array();
+
+          for (int i = 0; i < audioTracks.count; i++) {
+            final track = audioTracks.objectAtIndex(i) as AVAssetTrack;
+            final inputParams =
+                AVMutableAudioMixInputParameters.audioMixInputParametersWithTrack(
+                  track,
+                );
+
+            final targetVolume = config.isMuted ? 0.0 : config.scale;
+            final zeroTime = arena<CMTime>()
+              ..ref.value = 0
+              ..ref.timescale = 1000
+              ..ref.flags = 1;
+
+            inputParams.setVolume(
+              targetVolume.toDouble(),
+              atTime: zeroTime.ref,
+            );
+            inputParamsArray.addObject(inputParams);
+          }
+
+          audioMix.inputParameters = inputParamsArray;
+          session.audioMix = audioMix;
         }
       }
 

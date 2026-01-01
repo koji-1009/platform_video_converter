@@ -4874,7 +4874,7 @@ class Effects extends jni$_.JObject {
   /// from: `public void <init>(java.util.List<androidx.media3.common.audio.AudioProcessor> list, java.util.List<androidx.media3.common.Effect> list1)`
   /// The returned object must be released after use, by calling the [release] method.
   factory Effects(
-    jni$_.JList<jni$_.JObject?>? list,
+    jni$_.JList<AudioProcessor?>? list,
     jni$_.JList<Effect?>? list1,
   ) {
     final _$list = list?.reference ?? jni$_.jNullReference;
@@ -9509,454 +9509,6 @@ final class $Effect$Type$ extends jni$_.JType<Effect> {
   }
 }
 
-/// from: `androidx.media3.effect.ScaleAndRotateTransformation$Builder`
-class ScaleAndRotateTransformation$Builder extends jni$_.JObject {
-  @jni$_.internal
-  @core$_.override
-  final jni$_.JType<ScaleAndRotateTransformation$Builder> $type;
-
-  @jni$_.internal
-  ScaleAndRotateTransformation$Builder.fromReference(jni$_.JReference reference)
-    : $type = type,
-      super.fromReference(reference);
-
-  static final _class = jni$_.JClass.forName(
-    r'androidx/media3/effect/ScaleAndRotateTransformation$Builder',
-  );
-
-  /// The type which includes information such as the signature of this class.
-  static const jni$_.JType<ScaleAndRotateTransformation$Builder?> nullableType =
-      $ScaleAndRotateTransformation$Builder$NullableType$();
-
-  /// The type which includes information such as the signature of this class.
-  static const jni$_.JType<ScaleAndRotateTransformation$Builder> type =
-      $ScaleAndRotateTransformation$Builder$Type$();
-  static final _id_new$ = _class.constructorId(r'()V');
-
-  static final _new$ =
-      jni$_.ProtectedJniExtensions.lookup<
-            jni$_.NativeFunction<
-              jni$_.JniResult Function(
-                jni$_.Pointer<jni$_.Void>,
-                jni$_.JMethodIDPtr,
-              )
-            >
-          >('globalEnv_NewObject')
-          .asFunction<
-            jni$_.JniResult Function(
-              jni$_.Pointer<jni$_.Void>,
-              jni$_.JMethodIDPtr,
-            )
-          >();
-
-  /// from: `public void <init>()`
-  /// The returned object must be released after use, by calling the [release] method.
-  factory ScaleAndRotateTransformation$Builder() {
-    return ScaleAndRotateTransformation$Builder.fromReference(
-      _new$(_class.reference.pointer, _id_new$ as jni$_.JMethodIDPtr).reference,
-    );
-  }
-
-  static final _id_setScale = _class.instanceMethodId(
-    r'setScale',
-    r'(FF)Landroidx/media3/effect/ScaleAndRotateTransformation$Builder;',
-  );
-
-  static final _setScale =
-      jni$_.ProtectedJniExtensions.lookup<
-            jni$_.NativeFunction<
-              jni$_.JniResult Function(
-                jni$_.Pointer<jni$_.Void>,
-                jni$_.JMethodIDPtr,
-                jni$_.VarArgs<(jni$_.Double, jni$_.Double)>,
-              )
-            >
-          >('globalEnv_CallObjectMethod')
-          .asFunction<
-            jni$_.JniResult Function(
-              jni$_.Pointer<jni$_.Void>,
-              jni$_.JMethodIDPtr,
-              double,
-              double,
-            )
-          >();
-
-  /// from: `public androidx.media3.effect.ScaleAndRotateTransformation$Builder setScale(float f, float f1)`
-  /// The returned object must be released after use, by calling the [release] method.
-  ScaleAndRotateTransformation$Builder? setScale(double f, double f1) {
-    return _setScale(
-      reference.pointer,
-      _id_setScale as jni$_.JMethodIDPtr,
-      f,
-      f1,
-    ).object<ScaleAndRotateTransformation$Builder?>(
-      const $ScaleAndRotateTransformation$Builder$NullableType$(),
-    );
-  }
-
-  static final _id_setRotationDegrees = _class.instanceMethodId(
-    r'setRotationDegrees',
-    r'(F)Landroidx/media3/effect/ScaleAndRotateTransformation$Builder;',
-  );
-
-  static final _setRotationDegrees =
-      jni$_.ProtectedJniExtensions.lookup<
-            jni$_.NativeFunction<
-              jni$_.JniResult Function(
-                jni$_.Pointer<jni$_.Void>,
-                jni$_.JMethodIDPtr,
-                jni$_.VarArgs<(jni$_.Double,)>,
-              )
-            >
-          >('globalEnv_CallObjectMethod')
-          .asFunction<
-            jni$_.JniResult Function(
-              jni$_.Pointer<jni$_.Void>,
-              jni$_.JMethodIDPtr,
-              double,
-            )
-          >();
-
-  /// from: `public androidx.media3.effect.ScaleAndRotateTransformation$Builder setRotationDegrees(float f)`
-  /// The returned object must be released after use, by calling the [release] method.
-  ScaleAndRotateTransformation$Builder? setRotationDegrees(double f) {
-    return _setRotationDegrees(
-      reference.pointer,
-      _id_setRotationDegrees as jni$_.JMethodIDPtr,
-      f,
-    ).object<ScaleAndRotateTransformation$Builder?>(
-      const $ScaleAndRotateTransformation$Builder$NullableType$(),
-    );
-  }
-
-  static final _id_build = _class.instanceMethodId(
-    r'build',
-    r'()Landroidx/media3/effect/ScaleAndRotateTransformation;',
-  );
-
-  static final _build =
-      jni$_.ProtectedJniExtensions.lookup<
-            jni$_.NativeFunction<
-              jni$_.JniResult Function(
-                jni$_.Pointer<jni$_.Void>,
-                jni$_.JMethodIDPtr,
-              )
-            >
-          >('globalEnv_CallObjectMethod')
-          .asFunction<
-            jni$_.JniResult Function(
-              jni$_.Pointer<jni$_.Void>,
-              jni$_.JMethodIDPtr,
-            )
-          >();
-
-  /// from: `public androidx.media3.effect.ScaleAndRotateTransformation build()`
-  /// The returned object must be released after use, by calling the [release] method.
-  ScaleAndRotateTransformation? build() {
-    return _build(
-      reference.pointer,
-      _id_build as jni$_.JMethodIDPtr,
-    ).object<ScaleAndRotateTransformation?>(
-      const $ScaleAndRotateTransformation$NullableType$(),
-    );
-  }
-}
-
-final class $ScaleAndRotateTransformation$Builder$NullableType$
-    extends jni$_.JType<ScaleAndRotateTransformation$Builder?> {
-  @jni$_.internal
-  const $ScaleAndRotateTransformation$Builder$NullableType$();
-
-  @jni$_.internal
-  @core$_.override
-  String get signature =>
-      r'Landroidx/media3/effect/ScaleAndRotateTransformation$Builder;';
-
-  @jni$_.internal
-  @core$_.override
-  ScaleAndRotateTransformation$Builder? fromReference(
-    jni$_.JReference reference,
-  ) => reference.isNull
-      ? null
-      : ScaleAndRotateTransformation$Builder.fromReference(reference);
-  @jni$_.internal
-  @core$_.override
-  jni$_.JType get superType => const jni$_.$JObject$NullableType$();
-
-  @jni$_.internal
-  @core$_.override
-  jni$_.JType<ScaleAndRotateTransformation$Builder?> get nullableType => this;
-
-  @jni$_.internal
-  @core$_.override
-  final superCount = 1;
-
-  @core$_.override
-  int get hashCode =>
-      ($ScaleAndRotateTransformation$Builder$NullableType$).hashCode;
-
-  @core$_.override
-  bool operator ==(Object other) {
-    return other.runtimeType ==
-            ($ScaleAndRotateTransformation$Builder$NullableType$) &&
-        other is $ScaleAndRotateTransformation$Builder$NullableType$;
-  }
-}
-
-final class $ScaleAndRotateTransformation$Builder$Type$
-    extends jni$_.JType<ScaleAndRotateTransformation$Builder> {
-  @jni$_.internal
-  const $ScaleAndRotateTransformation$Builder$Type$();
-
-  @jni$_.internal
-  @core$_.override
-  String get signature =>
-      r'Landroidx/media3/effect/ScaleAndRotateTransformation$Builder;';
-
-  @jni$_.internal
-  @core$_.override
-  ScaleAndRotateTransformation$Builder fromReference(
-    jni$_.JReference reference,
-  ) => ScaleAndRotateTransformation$Builder.fromReference(reference);
-  @jni$_.internal
-  @core$_.override
-  jni$_.JType get superType => const jni$_.$JObject$NullableType$();
-
-  @jni$_.internal
-  @core$_.override
-  jni$_.JType<ScaleAndRotateTransformation$Builder?> get nullableType =>
-      const $ScaleAndRotateTransformation$Builder$NullableType$();
-
-  @jni$_.internal
-  @core$_.override
-  final superCount = 1;
-
-  @core$_.override
-  int get hashCode => ($ScaleAndRotateTransformation$Builder$Type$).hashCode;
-
-  @core$_.override
-  bool operator ==(Object other) {
-    return other.runtimeType == ($ScaleAndRotateTransformation$Builder$Type$) &&
-        other is $ScaleAndRotateTransformation$Builder$Type$;
-  }
-}
-
-/// from: `androidx.media3.effect.ScaleAndRotateTransformation`
-class ScaleAndRotateTransformation extends jni$_.JObject {
-  @jni$_.internal
-  @core$_.override
-  final jni$_.JType<ScaleAndRotateTransformation> $type;
-
-  @jni$_.internal
-  ScaleAndRotateTransformation.fromReference(jni$_.JReference reference)
-    : $type = type,
-      super.fromReference(reference);
-
-  static final _class = jni$_.JClass.forName(
-    r'androidx/media3/effect/ScaleAndRotateTransformation',
-  );
-
-  /// The type which includes information such as the signature of this class.
-  static const jni$_.JType<ScaleAndRotateTransformation?> nullableType =
-      $ScaleAndRotateTransformation$NullableType$();
-
-  /// The type which includes information such as the signature of this class.
-  static const jni$_.JType<ScaleAndRotateTransformation> type =
-      $ScaleAndRotateTransformation$Type$();
-  static final _id_scaleX = _class.instanceFieldId(r'scaleX', r'F');
-
-  /// from: `public final float scaleX`
-  double get scaleX => _id_scaleX.get(this, const jni$_.jfloatType());
-
-  static final _id_scaleY = _class.instanceFieldId(r'scaleY', r'F');
-
-  /// from: `public final float scaleY`
-  double get scaleY => _id_scaleY.get(this, const jni$_.jfloatType());
-
-  static final _id_rotationDegrees = _class.instanceFieldId(
-    r'rotationDegrees',
-    r'F',
-  );
-
-  /// from: `public final float rotationDegrees`
-  double get rotationDegrees =>
-      _id_rotationDegrees.get(this, const jni$_.jfloatType());
-
-  static final _id_configure = _class.instanceMethodId(
-    r'configure',
-    r'(II)Landroidx/media3/common/util/Size;',
-  );
-
-  static final _configure =
-      jni$_.ProtectedJniExtensions.lookup<
-            jni$_.NativeFunction<
-              jni$_.JniResult Function(
-                jni$_.Pointer<jni$_.Void>,
-                jni$_.JMethodIDPtr,
-                jni$_.VarArgs<(jni$_.Int32, jni$_.Int32)>,
-              )
-            >
-          >('globalEnv_CallObjectMethod')
-          .asFunction<
-            jni$_.JniResult Function(
-              jni$_.Pointer<jni$_.Void>,
-              jni$_.JMethodIDPtr,
-              int,
-              int,
-            )
-          >();
-
-  /// from: `public androidx.media3.common.util.Size configure(int i, int i1)`
-  /// The returned object must be released after use, by calling the [release] method.
-  jni$_.JObject? configure(int i, int i1) {
-    return _configure(
-      reference.pointer,
-      _id_configure as jni$_.JMethodIDPtr,
-      i,
-      i1,
-    ).object<jni$_.JObject?>(const jni$_.$JObject$NullableType$());
-  }
-
-  static final _id_getMatrix = _class.instanceMethodId(
-    r'getMatrix',
-    r'(J)Landroid/graphics/Matrix;',
-  );
-
-  static final _getMatrix =
-      jni$_.ProtectedJniExtensions.lookup<
-            jni$_.NativeFunction<
-              jni$_.JniResult Function(
-                jni$_.Pointer<jni$_.Void>,
-                jni$_.JMethodIDPtr,
-                jni$_.VarArgs<(jni$_.Int64,)>,
-              )
-            >
-          >('globalEnv_CallObjectMethod')
-          .asFunction<
-            jni$_.JniResult Function(
-              jni$_.Pointer<jni$_.Void>,
-              jni$_.JMethodIDPtr,
-              int,
-            )
-          >();
-
-  /// from: `public android.graphics.Matrix getMatrix(long j)`
-  /// The returned object must be released after use, by calling the [release] method.
-  jni$_.JObject? getMatrix(int j) {
-    return _getMatrix(
-      reference.pointer,
-      _id_getMatrix as jni$_.JMethodIDPtr,
-      j,
-    ).object<jni$_.JObject?>(const jni$_.$JObject$NullableType$());
-  }
-
-  static final _id_isNoOp = _class.instanceMethodId(r'isNoOp', r'(II)Z');
-
-  static final _isNoOp =
-      jni$_.ProtectedJniExtensions.lookup<
-            jni$_.NativeFunction<
-              jni$_.JniResult Function(
-                jni$_.Pointer<jni$_.Void>,
-                jni$_.JMethodIDPtr,
-                jni$_.VarArgs<(jni$_.Int32, jni$_.Int32)>,
-              )
-            >
-          >('globalEnv_CallBooleanMethod')
-          .asFunction<
-            jni$_.JniResult Function(
-              jni$_.Pointer<jni$_.Void>,
-              jni$_.JMethodIDPtr,
-              int,
-              int,
-            )
-          >();
-
-  /// from: `public boolean isNoOp(int i, int i1)`
-  bool isNoOp(int i, int i1) {
-    return _isNoOp(
-      reference.pointer,
-      _id_isNoOp as jni$_.JMethodIDPtr,
-      i,
-      i1,
-    ).boolean;
-  }
-}
-
-final class $ScaleAndRotateTransformation$NullableType$
-    extends jni$_.JType<ScaleAndRotateTransformation?> {
-  @jni$_.internal
-  const $ScaleAndRotateTransformation$NullableType$();
-
-  @jni$_.internal
-  @core$_.override
-  String get signature =>
-      r'Landroidx/media3/effect/ScaleAndRotateTransformation;';
-
-  @jni$_.internal
-  @core$_.override
-  ScaleAndRotateTransformation? fromReference(jni$_.JReference reference) =>
-      reference.isNull
-      ? null
-      : ScaleAndRotateTransformation.fromReference(reference);
-  @jni$_.internal
-  @core$_.override
-  jni$_.JType get superType => const jni$_.$JObject$NullableType$();
-
-  @jni$_.internal
-  @core$_.override
-  jni$_.JType<ScaleAndRotateTransformation?> get nullableType => this;
-
-  @jni$_.internal
-  @core$_.override
-  final superCount = 1;
-
-  @core$_.override
-  int get hashCode => ($ScaleAndRotateTransformation$NullableType$).hashCode;
-
-  @core$_.override
-  bool operator ==(Object other) {
-    return other.runtimeType == ($ScaleAndRotateTransformation$NullableType$) &&
-        other is $ScaleAndRotateTransformation$NullableType$;
-  }
-}
-
-final class $ScaleAndRotateTransformation$Type$
-    extends jni$_.JType<ScaleAndRotateTransformation> {
-  @jni$_.internal
-  const $ScaleAndRotateTransformation$Type$();
-
-  @jni$_.internal
-  @core$_.override
-  String get signature =>
-      r'Landroidx/media3/effect/ScaleAndRotateTransformation;';
-
-  @jni$_.internal
-  @core$_.override
-  ScaleAndRotateTransformation fromReference(jni$_.JReference reference) =>
-      ScaleAndRotateTransformation.fromReference(reference);
-  @jni$_.internal
-  @core$_.override
-  jni$_.JType get superType => const jni$_.$JObject$NullableType$();
-
-  @jni$_.internal
-  @core$_.override
-  jni$_.JType<ScaleAndRotateTransformation?> get nullableType =>
-      const $ScaleAndRotateTransformation$NullableType$();
-
-  @jni$_.internal
-  @core$_.override
-  final superCount = 1;
-
-  @core$_.override
-  int get hashCode => ($ScaleAndRotateTransformation$Type$).hashCode;
-
-  @core$_.override
-  bool operator ==(Object other) {
-    return other.runtimeType == ($ScaleAndRotateTransformation$Type$) &&
-        other is $ScaleAndRotateTransformation$Type$;
-  }
-}
-
 /// from: `androidx.media3.effect.Presentation$Layout`
 class Presentation$Layout extends jni$_.JObject {
   @jni$_.internal
@@ -11064,6 +10616,41 @@ class VideoEncoderSettings$Builder extends jni$_.JObject {
       _id_setTemporalLayers as jni$_.JMethodIDPtr,
       i,
       i1,
+    ).object<VideoEncoderSettings$Builder?>(
+      const $VideoEncoderSettings$Builder$NullableType$(),
+    );
+  }
+
+  static final _id_setFrameRate = _class.instanceMethodId(
+    r'setFrameRate',
+    r'(F)Landroidx/media3/transformer/VideoEncoderSettings$Builder;',
+  );
+
+  static final _setFrameRate =
+      jni$_.ProtectedJniExtensions.lookup<
+            jni$_.NativeFunction<
+              jni$_.JniResult Function(
+                jni$_.Pointer<jni$_.Void>,
+                jni$_.JMethodIDPtr,
+                jni$_.VarArgs<(jni$_.Double,)>,
+              )
+            >
+          >('globalEnv_CallObjectMethod')
+          .asFunction<
+            jni$_.JniResult Function(
+              jni$_.Pointer<jni$_.Void>,
+              jni$_.JMethodIDPtr,
+              double,
+            )
+          >();
+
+  /// from: `public androidx.media3.transformer.VideoEncoderSettings$Builder setFrameRate(float frameRate)`
+  /// The returned object must be released after use, by calling the [release] method.
+  VideoEncoderSettings$Builder? setFrameRate(double frameRate) {
+    return _setFrameRate(
+      reference.pointer,
+      _id_setFrameRate as jni$_.JMethodIDPtr,
+      frameRate,
     ).object<VideoEncoderSettings$Builder?>(
       const $VideoEncoderSettings$Builder$NullableType$(),
     );
@@ -18379,6 +17966,2562 @@ final class $MediaItem$Type$ extends jni$_.JType<MediaItem> {
   @core$_.override
   bool operator ==(Object other) {
     return other.runtimeType == ($MediaItem$Type$) && other is $MediaItem$Type$;
+  }
+}
+
+/// from: `androidx.media3.common.audio.SonicAudioProcessor`
+class SonicAudioProcessor extends jni$_.JObject {
+  @jni$_.internal
+  @core$_.override
+  final jni$_.JType<SonicAudioProcessor> $type;
+
+  @jni$_.internal
+  SonicAudioProcessor.fromReference(jni$_.JReference reference)
+    : $type = type,
+      super.fromReference(reference);
+
+  static final _class = jni$_.JClass.forName(
+    r'androidx/media3/common/audio/SonicAudioProcessor',
+  );
+
+  /// The type which includes information such as the signature of this class.
+  static const jni$_.JType<SonicAudioProcessor?> nullableType =
+      $SonicAudioProcessor$NullableType$();
+
+  /// The type which includes information such as the signature of this class.
+  static const jni$_.JType<SonicAudioProcessor> type =
+      $SonicAudioProcessor$Type$();
+
+  /// from: `static public final int SAMPLE_RATE_NO_CHANGE`
+  static const SAMPLE_RATE_NO_CHANGE = -1;
+  static final _id_new$ = _class.constructorId(r'()V');
+
+  static final _new$ =
+      jni$_.ProtectedJniExtensions.lookup<
+            jni$_.NativeFunction<
+              jni$_.JniResult Function(
+                jni$_.Pointer<jni$_.Void>,
+                jni$_.JMethodIDPtr,
+              )
+            >
+          >('globalEnv_NewObject')
+          .asFunction<
+            jni$_.JniResult Function(
+              jni$_.Pointer<jni$_.Void>,
+              jni$_.JMethodIDPtr,
+            )
+          >();
+
+  /// from: `public void <init>()`
+  /// The returned object must be released after use, by calling the [release] method.
+  factory SonicAudioProcessor() {
+    return SonicAudioProcessor.fromReference(
+      _new$(_class.reference.pointer, _id_new$ as jni$_.JMethodIDPtr).reference,
+    );
+  }
+
+  static final _id_setSpeed = _class.instanceMethodId(r'setSpeed', r'(F)V');
+
+  static final _setSpeed =
+      jni$_.ProtectedJniExtensions.lookup<
+            jni$_.NativeFunction<
+              jni$_.JThrowablePtr Function(
+                jni$_.Pointer<jni$_.Void>,
+                jni$_.JMethodIDPtr,
+                jni$_.VarArgs<(jni$_.Double,)>,
+              )
+            >
+          >('globalEnv_CallVoidMethod')
+          .asFunction<
+            jni$_.JThrowablePtr Function(
+              jni$_.Pointer<jni$_.Void>,
+              jni$_.JMethodIDPtr,
+              double,
+            )
+          >();
+
+  /// from: `public void setSpeed(float f)`
+  void setSpeed(double f) {
+    _setSpeed(reference.pointer, _id_setSpeed as jni$_.JMethodIDPtr, f).check();
+  }
+
+  static final _id_setPitch = _class.instanceMethodId(r'setPitch', r'(F)V');
+
+  static final _setPitch =
+      jni$_.ProtectedJniExtensions.lookup<
+            jni$_.NativeFunction<
+              jni$_.JThrowablePtr Function(
+                jni$_.Pointer<jni$_.Void>,
+                jni$_.JMethodIDPtr,
+                jni$_.VarArgs<(jni$_.Double,)>,
+              )
+            >
+          >('globalEnv_CallVoidMethod')
+          .asFunction<
+            jni$_.JThrowablePtr Function(
+              jni$_.Pointer<jni$_.Void>,
+              jni$_.JMethodIDPtr,
+              double,
+            )
+          >();
+
+  /// from: `public void setPitch(float f)`
+  void setPitch(double f) {
+    _setPitch(reference.pointer, _id_setPitch as jni$_.JMethodIDPtr, f).check();
+  }
+
+  static final _id_setOutputSampleRateHz = _class.instanceMethodId(
+    r'setOutputSampleRateHz',
+    r'(I)V',
+  );
+
+  static final _setOutputSampleRateHz =
+      jni$_.ProtectedJniExtensions.lookup<
+            jni$_.NativeFunction<
+              jni$_.JThrowablePtr Function(
+                jni$_.Pointer<jni$_.Void>,
+                jni$_.JMethodIDPtr,
+                jni$_.VarArgs<(jni$_.Int32,)>,
+              )
+            >
+          >('globalEnv_CallVoidMethod')
+          .asFunction<
+            jni$_.JThrowablePtr Function(
+              jni$_.Pointer<jni$_.Void>,
+              jni$_.JMethodIDPtr,
+              int,
+            )
+          >();
+
+  /// from: `public void setOutputSampleRateHz(int i)`
+  void setOutputSampleRateHz(int i) {
+    _setOutputSampleRateHz(
+      reference.pointer,
+      _id_setOutputSampleRateHz as jni$_.JMethodIDPtr,
+      i,
+    ).check();
+  }
+
+  static final _id_getMediaDuration = _class.instanceMethodId(
+    r'getMediaDuration',
+    r'(J)J',
+  );
+
+  static final _getMediaDuration =
+      jni$_.ProtectedJniExtensions.lookup<
+            jni$_.NativeFunction<
+              jni$_.JniResult Function(
+                jni$_.Pointer<jni$_.Void>,
+                jni$_.JMethodIDPtr,
+                jni$_.VarArgs<(jni$_.Int64,)>,
+              )
+            >
+          >('globalEnv_CallLongMethod')
+          .asFunction<
+            jni$_.JniResult Function(
+              jni$_.Pointer<jni$_.Void>,
+              jni$_.JMethodIDPtr,
+              int,
+            )
+          >();
+
+  /// from: `public long getMediaDuration(long j)`
+  int getMediaDuration(int j) {
+    return _getMediaDuration(
+      reference.pointer,
+      _id_getMediaDuration as jni$_.JMethodIDPtr,
+      j,
+    ).long;
+  }
+
+  static final _id_getPlayoutDuration = _class.instanceMethodId(
+    r'getPlayoutDuration',
+    r'(J)J',
+  );
+
+  static final _getPlayoutDuration =
+      jni$_.ProtectedJniExtensions.lookup<
+            jni$_.NativeFunction<
+              jni$_.JniResult Function(
+                jni$_.Pointer<jni$_.Void>,
+                jni$_.JMethodIDPtr,
+                jni$_.VarArgs<(jni$_.Int64,)>,
+              )
+            >
+          >('globalEnv_CallLongMethod')
+          .asFunction<
+            jni$_.JniResult Function(
+              jni$_.Pointer<jni$_.Void>,
+              jni$_.JMethodIDPtr,
+              int,
+            )
+          >();
+
+  /// from: `public long getPlayoutDuration(long j)`
+  int getPlayoutDuration(int j) {
+    return _getPlayoutDuration(
+      reference.pointer,
+      _id_getPlayoutDuration as jni$_.JMethodIDPtr,
+      j,
+    ).long;
+  }
+
+  static final _id_getProcessedInputBytes = _class.instanceMethodId(
+    r'getProcessedInputBytes',
+    r'()J',
+  );
+
+  static final _getProcessedInputBytes =
+      jni$_.ProtectedJniExtensions.lookup<
+            jni$_.NativeFunction<
+              jni$_.JniResult Function(
+                jni$_.Pointer<jni$_.Void>,
+                jni$_.JMethodIDPtr,
+              )
+            >
+          >('globalEnv_CallLongMethod')
+          .asFunction<
+            jni$_.JniResult Function(
+              jni$_.Pointer<jni$_.Void>,
+              jni$_.JMethodIDPtr,
+            )
+          >();
+
+  /// from: `public long getProcessedInputBytes()`
+  int getProcessedInputBytes() {
+    return _getProcessedInputBytes(
+      reference.pointer,
+      _id_getProcessedInputBytes as jni$_.JMethodIDPtr,
+    ).long;
+  }
+
+  static final _id_getDurationAfterProcessorApplied = _class.instanceMethodId(
+    r'getDurationAfterProcessorApplied',
+    r'(J)J',
+  );
+
+  static final _getDurationAfterProcessorApplied =
+      jni$_.ProtectedJniExtensions.lookup<
+            jni$_.NativeFunction<
+              jni$_.JniResult Function(
+                jni$_.Pointer<jni$_.Void>,
+                jni$_.JMethodIDPtr,
+                jni$_.VarArgs<(jni$_.Int64,)>,
+              )
+            >
+          >('globalEnv_CallLongMethod')
+          .asFunction<
+            jni$_.JniResult Function(
+              jni$_.Pointer<jni$_.Void>,
+              jni$_.JMethodIDPtr,
+              int,
+            )
+          >();
+
+  /// from: `public long getDurationAfterProcessorApplied(long j)`
+  int getDurationAfterProcessorApplied(int j) {
+    return _getDurationAfterProcessorApplied(
+      reference.pointer,
+      _id_getDurationAfterProcessorApplied as jni$_.JMethodIDPtr,
+      j,
+    ).long;
+  }
+
+  static final _id_configure = _class.instanceMethodId(
+    r'configure',
+    r'(Landroidx/media3/common/audio/AudioProcessor$AudioFormat;)Landroidx/media3/common/audio/AudioProcessor$AudioFormat;',
+  );
+
+  static final _configure =
+      jni$_.ProtectedJniExtensions.lookup<
+            jni$_.NativeFunction<
+              jni$_.JniResult Function(
+                jni$_.Pointer<jni$_.Void>,
+                jni$_.JMethodIDPtr,
+                jni$_.VarArgs<(jni$_.Pointer<jni$_.Void>,)>,
+              )
+            >
+          >('globalEnv_CallObjectMethod')
+          .asFunction<
+            jni$_.JniResult Function(
+              jni$_.Pointer<jni$_.Void>,
+              jni$_.JMethodIDPtr,
+              jni$_.Pointer<jni$_.Void>,
+            )
+          >();
+
+  /// from: `public androidx.media3.common.audio.AudioProcessor$AudioFormat configure(androidx.media3.common.audio.AudioProcessor$AudioFormat audioFormat)`
+  /// The returned object must be released after use, by calling the [release] method.
+  AudioProcessor$AudioFormat? configure(
+    AudioProcessor$AudioFormat? audioFormat,
+  ) {
+    final _$audioFormat = audioFormat?.reference ?? jni$_.jNullReference;
+    return _configure(
+      reference.pointer,
+      _id_configure as jni$_.JMethodIDPtr,
+      _$audioFormat.pointer,
+    ).object<AudioProcessor$AudioFormat?>(
+      const $AudioProcessor$AudioFormat$NullableType$(),
+    );
+  }
+
+  static final _id_isActive = _class.instanceMethodId(r'isActive', r'()Z');
+
+  static final _isActive =
+      jni$_.ProtectedJniExtensions.lookup<
+            jni$_.NativeFunction<
+              jni$_.JniResult Function(
+                jni$_.Pointer<jni$_.Void>,
+                jni$_.JMethodIDPtr,
+              )
+            >
+          >('globalEnv_CallBooleanMethod')
+          .asFunction<
+            jni$_.JniResult Function(
+              jni$_.Pointer<jni$_.Void>,
+              jni$_.JMethodIDPtr,
+            )
+          >();
+
+  /// from: `public boolean isActive()`
+  bool isActive() {
+    return _isActive(
+      reference.pointer,
+      _id_isActive as jni$_.JMethodIDPtr,
+    ).boolean;
+  }
+
+  static final _id_queueInput = _class.instanceMethodId(
+    r'queueInput',
+    r'(Ljava/nio/ByteBuffer;)V',
+  );
+
+  static final _queueInput =
+      jni$_.ProtectedJniExtensions.lookup<
+            jni$_.NativeFunction<
+              jni$_.JThrowablePtr Function(
+                jni$_.Pointer<jni$_.Void>,
+                jni$_.JMethodIDPtr,
+                jni$_.VarArgs<(jni$_.Pointer<jni$_.Void>,)>,
+              )
+            >
+          >('globalEnv_CallVoidMethod')
+          .asFunction<
+            jni$_.JThrowablePtr Function(
+              jni$_.Pointer<jni$_.Void>,
+              jni$_.JMethodIDPtr,
+              jni$_.Pointer<jni$_.Void>,
+            )
+          >();
+
+  /// from: `public void queueInput(java.nio.ByteBuffer byteBuffer)`
+  void queueInput(jni$_.JByteBuffer? byteBuffer) {
+    final _$byteBuffer = byteBuffer?.reference ?? jni$_.jNullReference;
+    _queueInput(
+      reference.pointer,
+      _id_queueInput as jni$_.JMethodIDPtr,
+      _$byteBuffer.pointer,
+    ).check();
+  }
+
+  static final _id_queueEndOfStream = _class.instanceMethodId(
+    r'queueEndOfStream',
+    r'()V',
+  );
+
+  static final _queueEndOfStream =
+      jni$_.ProtectedJniExtensions.lookup<
+            jni$_.NativeFunction<
+              jni$_.JThrowablePtr Function(
+                jni$_.Pointer<jni$_.Void>,
+                jni$_.JMethodIDPtr,
+              )
+            >
+          >('globalEnv_CallVoidMethod')
+          .asFunction<
+            jni$_.JThrowablePtr Function(
+              jni$_.Pointer<jni$_.Void>,
+              jni$_.JMethodIDPtr,
+            )
+          >();
+
+  /// from: `public void queueEndOfStream()`
+  void queueEndOfStream() {
+    _queueEndOfStream(
+      reference.pointer,
+      _id_queueEndOfStream as jni$_.JMethodIDPtr,
+    ).check();
+  }
+
+  static final _id_getOutput = _class.instanceMethodId(
+    r'getOutput',
+    r'()Ljava/nio/ByteBuffer;',
+  );
+
+  static final _getOutput =
+      jni$_.ProtectedJniExtensions.lookup<
+            jni$_.NativeFunction<
+              jni$_.JniResult Function(
+                jni$_.Pointer<jni$_.Void>,
+                jni$_.JMethodIDPtr,
+              )
+            >
+          >('globalEnv_CallObjectMethod')
+          .asFunction<
+            jni$_.JniResult Function(
+              jni$_.Pointer<jni$_.Void>,
+              jni$_.JMethodIDPtr,
+            )
+          >();
+
+  /// from: `public java.nio.ByteBuffer getOutput()`
+  /// The returned object must be released after use, by calling the [release] method.
+  jni$_.JByteBuffer? getOutput() {
+    return _getOutput(
+      reference.pointer,
+      _id_getOutput as jni$_.JMethodIDPtr,
+    ).object<jni$_.JByteBuffer?>(const jni$_.$JByteBuffer$NullableType$());
+  }
+
+  static final _id_isEnded = _class.instanceMethodId(r'isEnded', r'()Z');
+
+  static final _isEnded =
+      jni$_.ProtectedJniExtensions.lookup<
+            jni$_.NativeFunction<
+              jni$_.JniResult Function(
+                jni$_.Pointer<jni$_.Void>,
+                jni$_.JMethodIDPtr,
+              )
+            >
+          >('globalEnv_CallBooleanMethod')
+          .asFunction<
+            jni$_.JniResult Function(
+              jni$_.Pointer<jni$_.Void>,
+              jni$_.JMethodIDPtr,
+            )
+          >();
+
+  /// from: `public boolean isEnded()`
+  bool isEnded() {
+    return _isEnded(
+      reference.pointer,
+      _id_isEnded as jni$_.JMethodIDPtr,
+    ).boolean;
+  }
+
+  static final _id_flush = _class.instanceMethodId(
+    r'flush',
+    r'(Landroidx/media3/common/audio/AudioProcessor$StreamMetadata;)V',
+  );
+
+  static final _flush =
+      jni$_.ProtectedJniExtensions.lookup<
+            jni$_.NativeFunction<
+              jni$_.JThrowablePtr Function(
+                jni$_.Pointer<jni$_.Void>,
+                jni$_.JMethodIDPtr,
+                jni$_.VarArgs<(jni$_.Pointer<jni$_.Void>,)>,
+              )
+            >
+          >('globalEnv_CallVoidMethod')
+          .asFunction<
+            jni$_.JThrowablePtr Function(
+              jni$_.Pointer<jni$_.Void>,
+              jni$_.JMethodIDPtr,
+              jni$_.Pointer<jni$_.Void>,
+            )
+          >();
+
+  /// from: `public void flush(androidx.media3.common.audio.AudioProcessor$StreamMetadata streamMetadata)`
+  void flush(AudioProcessor$StreamMetadata? streamMetadata) {
+    final _$streamMetadata = streamMetadata?.reference ?? jni$_.jNullReference;
+    _flush(
+      reference.pointer,
+      _id_flush as jni$_.JMethodIDPtr,
+      _$streamMetadata.pointer,
+    ).check();
+  }
+
+  static final _id_reset = _class.instanceMethodId(r'reset', r'()V');
+
+  static final _reset =
+      jni$_.ProtectedJniExtensions.lookup<
+            jni$_.NativeFunction<
+              jni$_.JThrowablePtr Function(
+                jni$_.Pointer<jni$_.Void>,
+                jni$_.JMethodIDPtr,
+              )
+            >
+          >('globalEnv_CallVoidMethod')
+          .asFunction<
+            jni$_.JThrowablePtr Function(
+              jni$_.Pointer<jni$_.Void>,
+              jni$_.JMethodIDPtr,
+            )
+          >();
+
+  /// from: `public void reset()`
+  void reset() {
+    _reset(reference.pointer, _id_reset as jni$_.JMethodIDPtr).check();
+  }
+
+  static final _id_flush$1 = _class.instanceMethodId(r'flush', r'()V');
+
+  static final _flush$1 =
+      jni$_.ProtectedJniExtensions.lookup<
+            jni$_.NativeFunction<
+              jni$_.JThrowablePtr Function(
+                jni$_.Pointer<jni$_.Void>,
+                jni$_.JMethodIDPtr,
+              )
+            >
+          >('globalEnv_CallVoidMethod')
+          .asFunction<
+            jni$_.JThrowablePtr Function(
+              jni$_.Pointer<jni$_.Void>,
+              jni$_.JMethodIDPtr,
+            )
+          >();
+
+  /// from: `public void flush()`
+  void flush$1() {
+    _flush$1(reference.pointer, _id_flush$1 as jni$_.JMethodIDPtr).check();
+  }
+}
+
+final class $SonicAudioProcessor$NullableType$
+    extends jni$_.JType<SonicAudioProcessor?> {
+  @jni$_.internal
+  const $SonicAudioProcessor$NullableType$();
+
+  @jni$_.internal
+  @core$_.override
+  String get signature => r'Landroidx/media3/common/audio/SonicAudioProcessor;';
+
+  @jni$_.internal
+  @core$_.override
+  SonicAudioProcessor? fromReference(jni$_.JReference reference) =>
+      reference.isNull ? null : SonicAudioProcessor.fromReference(reference);
+  @jni$_.internal
+  @core$_.override
+  jni$_.JType get superType => const jni$_.$JObject$NullableType$();
+
+  @jni$_.internal
+  @core$_.override
+  jni$_.JType<SonicAudioProcessor?> get nullableType => this;
+
+  @jni$_.internal
+  @core$_.override
+  final superCount = 1;
+
+  @core$_.override
+  int get hashCode => ($SonicAudioProcessor$NullableType$).hashCode;
+
+  @core$_.override
+  bool operator ==(Object other) {
+    return other.runtimeType == ($SonicAudioProcessor$NullableType$) &&
+        other is $SonicAudioProcessor$NullableType$;
+  }
+}
+
+final class $SonicAudioProcessor$Type$
+    extends jni$_.JType<SonicAudioProcessor> {
+  @jni$_.internal
+  const $SonicAudioProcessor$Type$();
+
+  @jni$_.internal
+  @core$_.override
+  String get signature => r'Landroidx/media3/common/audio/SonicAudioProcessor;';
+
+  @jni$_.internal
+  @core$_.override
+  SonicAudioProcessor fromReference(jni$_.JReference reference) =>
+      SonicAudioProcessor.fromReference(reference);
+  @jni$_.internal
+  @core$_.override
+  jni$_.JType get superType => const jni$_.$JObject$NullableType$();
+
+  @jni$_.internal
+  @core$_.override
+  jni$_.JType<SonicAudioProcessor?> get nullableType =>
+      const $SonicAudioProcessor$NullableType$();
+
+  @jni$_.internal
+  @core$_.override
+  final superCount = 1;
+
+  @core$_.override
+  int get hashCode => ($SonicAudioProcessor$Type$).hashCode;
+
+  @core$_.override
+  bool operator ==(Object other) {
+    return other.runtimeType == ($SonicAudioProcessor$Type$) &&
+        other is $SonicAudioProcessor$Type$;
+  }
+}
+
+/// from: `androidx.media3.common.audio.ChannelMixingAudioProcessor`
+class ChannelMixingAudioProcessor extends jni$_.JObject {
+  @jni$_.internal
+  @core$_.override
+  final jni$_.JType<ChannelMixingAudioProcessor> $type;
+
+  @jni$_.internal
+  ChannelMixingAudioProcessor.fromReference(jni$_.JReference reference)
+    : $type = type,
+      super.fromReference(reference);
+
+  static final _class = jni$_.JClass.forName(
+    r'androidx/media3/common/audio/ChannelMixingAudioProcessor',
+  );
+
+  /// The type which includes information such as the signature of this class.
+  static const jni$_.JType<ChannelMixingAudioProcessor?> nullableType =
+      $ChannelMixingAudioProcessor$NullableType$();
+
+  /// The type which includes information such as the signature of this class.
+  static const jni$_.JType<ChannelMixingAudioProcessor> type =
+      $ChannelMixingAudioProcessor$Type$();
+  static final _id_new$ = _class.constructorId(r'()V');
+
+  static final _new$ =
+      jni$_.ProtectedJniExtensions.lookup<
+            jni$_.NativeFunction<
+              jni$_.JniResult Function(
+                jni$_.Pointer<jni$_.Void>,
+                jni$_.JMethodIDPtr,
+              )
+            >
+          >('globalEnv_NewObject')
+          .asFunction<
+            jni$_.JniResult Function(
+              jni$_.Pointer<jni$_.Void>,
+              jni$_.JMethodIDPtr,
+            )
+          >();
+
+  /// from: `public void <init>()`
+  /// The returned object must be released after use, by calling the [release] method.
+  factory ChannelMixingAudioProcessor() {
+    return ChannelMixingAudioProcessor.fromReference(
+      _new$(_class.reference.pointer, _id_new$ as jni$_.JMethodIDPtr).reference,
+    );
+  }
+
+  static final _id_putChannelMixingMatrix = _class.instanceMethodId(
+    r'putChannelMixingMatrix',
+    r'(Landroidx/media3/common/audio/ChannelMixingMatrix;)V',
+  );
+
+  static final _putChannelMixingMatrix =
+      jni$_.ProtectedJniExtensions.lookup<
+            jni$_.NativeFunction<
+              jni$_.JThrowablePtr Function(
+                jni$_.Pointer<jni$_.Void>,
+                jni$_.JMethodIDPtr,
+                jni$_.VarArgs<(jni$_.Pointer<jni$_.Void>,)>,
+              )
+            >
+          >('globalEnv_CallVoidMethod')
+          .asFunction<
+            jni$_.JThrowablePtr Function(
+              jni$_.Pointer<jni$_.Void>,
+              jni$_.JMethodIDPtr,
+              jni$_.Pointer<jni$_.Void>,
+            )
+          >();
+
+  /// from: `public void putChannelMixingMatrix(androidx.media3.common.audio.ChannelMixingMatrix channelMixingMatrix)`
+  void putChannelMixingMatrix(ChannelMixingMatrix? channelMixingMatrix) {
+    final _$channelMixingMatrix =
+        channelMixingMatrix?.reference ?? jni$_.jNullReference;
+    _putChannelMixingMatrix(
+      reference.pointer,
+      _id_putChannelMixingMatrix as jni$_.JMethodIDPtr,
+      _$channelMixingMatrix.pointer,
+    ).check();
+  }
+
+  static final _id_queueInput = _class.instanceMethodId(
+    r'queueInput',
+    r'(Ljava/nio/ByteBuffer;)V',
+  );
+
+  static final _queueInput =
+      jni$_.ProtectedJniExtensions.lookup<
+            jni$_.NativeFunction<
+              jni$_.JThrowablePtr Function(
+                jni$_.Pointer<jni$_.Void>,
+                jni$_.JMethodIDPtr,
+                jni$_.VarArgs<(jni$_.Pointer<jni$_.Void>,)>,
+              )
+            >
+          >('globalEnv_CallVoidMethod')
+          .asFunction<
+            jni$_.JThrowablePtr Function(
+              jni$_.Pointer<jni$_.Void>,
+              jni$_.JMethodIDPtr,
+              jni$_.Pointer<jni$_.Void>,
+            )
+          >();
+
+  /// from: `public void queueInput(java.nio.ByteBuffer byteBuffer)`
+  void queueInput(jni$_.JByteBuffer? byteBuffer) {
+    final _$byteBuffer = byteBuffer?.reference ?? jni$_.jNullReference;
+    _queueInput(
+      reference.pointer,
+      _id_queueInput as jni$_.JMethodIDPtr,
+      _$byteBuffer.pointer,
+    ).check();
+  }
+}
+
+final class $ChannelMixingAudioProcessor$NullableType$
+    extends jni$_.JType<ChannelMixingAudioProcessor?> {
+  @jni$_.internal
+  const $ChannelMixingAudioProcessor$NullableType$();
+
+  @jni$_.internal
+  @core$_.override
+  String get signature =>
+      r'Landroidx/media3/common/audio/ChannelMixingAudioProcessor;';
+
+  @jni$_.internal
+  @core$_.override
+  ChannelMixingAudioProcessor? fromReference(jni$_.JReference reference) =>
+      reference.isNull
+      ? null
+      : ChannelMixingAudioProcessor.fromReference(reference);
+  @jni$_.internal
+  @core$_.override
+  jni$_.JType get superType => const jni$_.$JObject$NullableType$();
+
+  @jni$_.internal
+  @core$_.override
+  jni$_.JType<ChannelMixingAudioProcessor?> get nullableType => this;
+
+  @jni$_.internal
+  @core$_.override
+  final superCount = 1;
+
+  @core$_.override
+  int get hashCode => ($ChannelMixingAudioProcessor$NullableType$).hashCode;
+
+  @core$_.override
+  bool operator ==(Object other) {
+    return other.runtimeType == ($ChannelMixingAudioProcessor$NullableType$) &&
+        other is $ChannelMixingAudioProcessor$NullableType$;
+  }
+}
+
+final class $ChannelMixingAudioProcessor$Type$
+    extends jni$_.JType<ChannelMixingAudioProcessor> {
+  @jni$_.internal
+  const $ChannelMixingAudioProcessor$Type$();
+
+  @jni$_.internal
+  @core$_.override
+  String get signature =>
+      r'Landroidx/media3/common/audio/ChannelMixingAudioProcessor;';
+
+  @jni$_.internal
+  @core$_.override
+  ChannelMixingAudioProcessor fromReference(jni$_.JReference reference) =>
+      ChannelMixingAudioProcessor.fromReference(reference);
+  @jni$_.internal
+  @core$_.override
+  jni$_.JType get superType => const jni$_.$JObject$NullableType$();
+
+  @jni$_.internal
+  @core$_.override
+  jni$_.JType<ChannelMixingAudioProcessor?> get nullableType =>
+      const $ChannelMixingAudioProcessor$NullableType$();
+
+  @jni$_.internal
+  @core$_.override
+  final superCount = 1;
+
+  @core$_.override
+  int get hashCode => ($ChannelMixingAudioProcessor$Type$).hashCode;
+
+  @core$_.override
+  bool operator ==(Object other) {
+    return other.runtimeType == ($ChannelMixingAudioProcessor$Type$) &&
+        other is $ChannelMixingAudioProcessor$Type$;
+  }
+}
+
+/// from: `androidx.media3.common.audio.ChannelMixingMatrix`
+class ChannelMixingMatrix extends jni$_.JObject {
+  @jni$_.internal
+  @core$_.override
+  final jni$_.JType<ChannelMixingMatrix> $type;
+
+  @jni$_.internal
+  ChannelMixingMatrix.fromReference(jni$_.JReference reference)
+    : $type = type,
+      super.fromReference(reference);
+
+  static final _class = jni$_.JClass.forName(
+    r'androidx/media3/common/audio/ChannelMixingMatrix',
+  );
+
+  /// The type which includes information such as the signature of this class.
+  static const jni$_.JType<ChannelMixingMatrix?> nullableType =
+      $ChannelMixingMatrix$NullableType$();
+
+  /// The type which includes information such as the signature of this class.
+  static const jni$_.JType<ChannelMixingMatrix> type =
+      $ChannelMixingMatrix$Type$();
+  static final _id_create = _class.staticMethodId(
+    r'create',
+    r'(II)Landroidx/media3/common/audio/ChannelMixingMatrix;',
+  );
+
+  static final _create =
+      jni$_.ProtectedJniExtensions.lookup<
+            jni$_.NativeFunction<
+              jni$_.JniResult Function(
+                jni$_.Pointer<jni$_.Void>,
+                jni$_.JMethodIDPtr,
+                jni$_.VarArgs<(jni$_.Int32, jni$_.Int32)>,
+              )
+            >
+          >('globalEnv_CallStaticObjectMethod')
+          .asFunction<
+            jni$_.JniResult Function(
+              jni$_.Pointer<jni$_.Void>,
+              jni$_.JMethodIDPtr,
+              int,
+              int,
+            )
+          >();
+
+  /// from: `static public androidx.media3.common.audio.ChannelMixingMatrix create(int i, int i1)`
+  /// The returned object must be released after use, by calling the [release] method.
+  static ChannelMixingMatrix? create(int i, int i1) {
+    return _create(
+      _class.reference.pointer,
+      _id_create as jni$_.JMethodIDPtr,
+      i,
+      i1,
+    ).object<ChannelMixingMatrix?>(const $ChannelMixingMatrix$NullableType$());
+  }
+
+  static final _id_createForConstantGain = _class.staticMethodId(
+    r'createForConstantGain',
+    r'(II)Landroidx/media3/common/audio/ChannelMixingMatrix;',
+  );
+
+  static final _createForConstantGain =
+      jni$_.ProtectedJniExtensions.lookup<
+            jni$_.NativeFunction<
+              jni$_.JniResult Function(
+                jni$_.Pointer<jni$_.Void>,
+                jni$_.JMethodIDPtr,
+                jni$_.VarArgs<(jni$_.Int32, jni$_.Int32)>,
+              )
+            >
+          >('globalEnv_CallStaticObjectMethod')
+          .asFunction<
+            jni$_.JniResult Function(
+              jni$_.Pointer<jni$_.Void>,
+              jni$_.JMethodIDPtr,
+              int,
+              int,
+            )
+          >();
+
+  /// from: `static public androidx.media3.common.audio.ChannelMixingMatrix createForConstantGain(int i, int i1)`
+  /// The returned object must be released after use, by calling the [release] method.
+  static ChannelMixingMatrix? createForConstantGain(int i, int i1) {
+    return _createForConstantGain(
+      _class.reference.pointer,
+      _id_createForConstantGain as jni$_.JMethodIDPtr,
+      i,
+      i1,
+    ).object<ChannelMixingMatrix?>(const $ChannelMixingMatrix$NullableType$());
+  }
+
+  static final _id_createForConstantPower = _class.staticMethodId(
+    r'createForConstantPower',
+    r'(II)Landroidx/media3/common/audio/ChannelMixingMatrix;',
+  );
+
+  static final _createForConstantPower =
+      jni$_.ProtectedJniExtensions.lookup<
+            jni$_.NativeFunction<
+              jni$_.JniResult Function(
+                jni$_.Pointer<jni$_.Void>,
+                jni$_.JMethodIDPtr,
+                jni$_.VarArgs<(jni$_.Int32, jni$_.Int32)>,
+              )
+            >
+          >('globalEnv_CallStaticObjectMethod')
+          .asFunction<
+            jni$_.JniResult Function(
+              jni$_.Pointer<jni$_.Void>,
+              jni$_.JMethodIDPtr,
+              int,
+              int,
+            )
+          >();
+
+  /// from: `static public androidx.media3.common.audio.ChannelMixingMatrix createForConstantPower(int i, int i1)`
+  /// The returned object must be released after use, by calling the [release] method.
+  static ChannelMixingMatrix? createForConstantPower(int i, int i1) {
+    return _createForConstantPower(
+      _class.reference.pointer,
+      _id_createForConstantPower as jni$_.JMethodIDPtr,
+      i,
+      i1,
+    ).object<ChannelMixingMatrix?>(const $ChannelMixingMatrix$NullableType$());
+  }
+
+  static final _id_new$ = _class.constructorId(r'(II[F)V');
+
+  static final _new$ =
+      jni$_.ProtectedJniExtensions.lookup<
+            jni$_.NativeFunction<
+              jni$_.JniResult Function(
+                jni$_.Pointer<jni$_.Void>,
+                jni$_.JMethodIDPtr,
+                jni$_.VarArgs<
+                  (jni$_.Int32, jni$_.Int32, jni$_.Pointer<jni$_.Void>)
+                >,
+              )
+            >
+          >('globalEnv_NewObject')
+          .asFunction<
+            jni$_.JniResult Function(
+              jni$_.Pointer<jni$_.Void>,
+              jni$_.JMethodIDPtr,
+              int,
+              int,
+              jni$_.Pointer<jni$_.Void>,
+            )
+          >();
+
+  /// from: `public void <init>(int i, int i1, float[] fs)`
+  /// The returned object must be released after use, by calling the [release] method.
+  factory ChannelMixingMatrix(int i, int i1, jni$_.JFloatArray? fs) {
+    final _$fs = fs?.reference ?? jni$_.jNullReference;
+    return ChannelMixingMatrix.fromReference(
+      _new$(
+        _class.reference.pointer,
+        _id_new$ as jni$_.JMethodIDPtr,
+        i,
+        i1,
+        _$fs.pointer,
+      ).reference,
+    );
+  }
+
+  static final _id_getInputChannelCount = _class.instanceMethodId(
+    r'getInputChannelCount',
+    r'()I',
+  );
+
+  static final _getInputChannelCount =
+      jni$_.ProtectedJniExtensions.lookup<
+            jni$_.NativeFunction<
+              jni$_.JniResult Function(
+                jni$_.Pointer<jni$_.Void>,
+                jni$_.JMethodIDPtr,
+              )
+            >
+          >('globalEnv_CallIntMethod')
+          .asFunction<
+            jni$_.JniResult Function(
+              jni$_.Pointer<jni$_.Void>,
+              jni$_.JMethodIDPtr,
+            )
+          >();
+
+  /// from: `public int getInputChannelCount()`
+  int getInputChannelCount() {
+    return _getInputChannelCount(
+      reference.pointer,
+      _id_getInputChannelCount as jni$_.JMethodIDPtr,
+    ).integer;
+  }
+
+  static final _id_getOutputChannelCount = _class.instanceMethodId(
+    r'getOutputChannelCount',
+    r'()I',
+  );
+
+  static final _getOutputChannelCount =
+      jni$_.ProtectedJniExtensions.lookup<
+            jni$_.NativeFunction<
+              jni$_.JniResult Function(
+                jni$_.Pointer<jni$_.Void>,
+                jni$_.JMethodIDPtr,
+              )
+            >
+          >('globalEnv_CallIntMethod')
+          .asFunction<
+            jni$_.JniResult Function(
+              jni$_.Pointer<jni$_.Void>,
+              jni$_.JMethodIDPtr,
+            )
+          >();
+
+  /// from: `public int getOutputChannelCount()`
+  int getOutputChannelCount() {
+    return _getOutputChannelCount(
+      reference.pointer,
+      _id_getOutputChannelCount as jni$_.JMethodIDPtr,
+    ).integer;
+  }
+
+  static final _id_getMixingCoefficient = _class.instanceMethodId(
+    r'getMixingCoefficient',
+    r'(II)F',
+  );
+
+  static final _getMixingCoefficient =
+      jni$_.ProtectedJniExtensions.lookup<
+            jni$_.NativeFunction<
+              jni$_.JniResult Function(
+                jni$_.Pointer<jni$_.Void>,
+                jni$_.JMethodIDPtr,
+                jni$_.VarArgs<(jni$_.Int32, jni$_.Int32)>,
+              )
+            >
+          >('globalEnv_CallFloatMethod')
+          .asFunction<
+            jni$_.JniResult Function(
+              jni$_.Pointer<jni$_.Void>,
+              jni$_.JMethodIDPtr,
+              int,
+              int,
+            )
+          >();
+
+  /// from: `public float getMixingCoefficient(int i, int i1)`
+  double getMixingCoefficient(int i, int i1) {
+    return _getMixingCoefficient(
+      reference.pointer,
+      _id_getMixingCoefficient as jni$_.JMethodIDPtr,
+      i,
+      i1,
+    ).float;
+  }
+
+  static final _id_isZero = _class.instanceMethodId(r'isZero', r'()Z');
+
+  static final _isZero =
+      jni$_.ProtectedJniExtensions.lookup<
+            jni$_.NativeFunction<
+              jni$_.JniResult Function(
+                jni$_.Pointer<jni$_.Void>,
+                jni$_.JMethodIDPtr,
+              )
+            >
+          >('globalEnv_CallBooleanMethod')
+          .asFunction<
+            jni$_.JniResult Function(
+              jni$_.Pointer<jni$_.Void>,
+              jni$_.JMethodIDPtr,
+            )
+          >();
+
+  /// from: `public boolean isZero()`
+  bool isZero() {
+    return _isZero(reference.pointer, _id_isZero as jni$_.JMethodIDPtr).boolean;
+  }
+
+  static final _id_isSquare = _class.instanceMethodId(r'isSquare', r'()Z');
+
+  static final _isSquare =
+      jni$_.ProtectedJniExtensions.lookup<
+            jni$_.NativeFunction<
+              jni$_.JniResult Function(
+                jni$_.Pointer<jni$_.Void>,
+                jni$_.JMethodIDPtr,
+              )
+            >
+          >('globalEnv_CallBooleanMethod')
+          .asFunction<
+            jni$_.JniResult Function(
+              jni$_.Pointer<jni$_.Void>,
+              jni$_.JMethodIDPtr,
+            )
+          >();
+
+  /// from: `public boolean isSquare()`
+  bool isSquare() {
+    return _isSquare(
+      reference.pointer,
+      _id_isSquare as jni$_.JMethodIDPtr,
+    ).boolean;
+  }
+
+  static final _id_isDiagonal = _class.instanceMethodId(r'isDiagonal', r'()Z');
+
+  static final _isDiagonal =
+      jni$_.ProtectedJniExtensions.lookup<
+            jni$_.NativeFunction<
+              jni$_.JniResult Function(
+                jni$_.Pointer<jni$_.Void>,
+                jni$_.JMethodIDPtr,
+              )
+            >
+          >('globalEnv_CallBooleanMethod')
+          .asFunction<
+            jni$_.JniResult Function(
+              jni$_.Pointer<jni$_.Void>,
+              jni$_.JMethodIDPtr,
+            )
+          >();
+
+  /// from: `public boolean isDiagonal()`
+  bool isDiagonal() {
+    return _isDiagonal(
+      reference.pointer,
+      _id_isDiagonal as jni$_.JMethodIDPtr,
+    ).boolean;
+  }
+
+  static final _id_isIdentity = _class.instanceMethodId(r'isIdentity', r'()Z');
+
+  static final _isIdentity =
+      jni$_.ProtectedJniExtensions.lookup<
+            jni$_.NativeFunction<
+              jni$_.JniResult Function(
+                jni$_.Pointer<jni$_.Void>,
+                jni$_.JMethodIDPtr,
+              )
+            >
+          >('globalEnv_CallBooleanMethod')
+          .asFunction<
+            jni$_.JniResult Function(
+              jni$_.Pointer<jni$_.Void>,
+              jni$_.JMethodIDPtr,
+            )
+          >();
+
+  /// from: `public boolean isIdentity()`
+  bool isIdentity() {
+    return _isIdentity(
+      reference.pointer,
+      _id_isIdentity as jni$_.JMethodIDPtr,
+    ).boolean;
+  }
+
+  static final _id_scaleBy = _class.instanceMethodId(
+    r'scaleBy',
+    r'(F)Landroidx/media3/common/audio/ChannelMixingMatrix;',
+  );
+
+  static final _scaleBy =
+      jni$_.ProtectedJniExtensions.lookup<
+            jni$_.NativeFunction<
+              jni$_.JniResult Function(
+                jni$_.Pointer<jni$_.Void>,
+                jni$_.JMethodIDPtr,
+                jni$_.VarArgs<(jni$_.Double,)>,
+              )
+            >
+          >('globalEnv_CallObjectMethod')
+          .asFunction<
+            jni$_.JniResult Function(
+              jni$_.Pointer<jni$_.Void>,
+              jni$_.JMethodIDPtr,
+              double,
+            )
+          >();
+
+  /// from: `public androidx.media3.common.audio.ChannelMixingMatrix scaleBy(float f)`
+  /// The returned object must be released after use, by calling the [release] method.
+  ChannelMixingMatrix? scaleBy(double f) {
+    return _scaleBy(
+      reference.pointer,
+      _id_scaleBy as jni$_.JMethodIDPtr,
+      f,
+    ).object<ChannelMixingMatrix?>(const $ChannelMixingMatrix$NullableType$());
+  }
+}
+
+final class $ChannelMixingMatrix$NullableType$
+    extends jni$_.JType<ChannelMixingMatrix?> {
+  @jni$_.internal
+  const $ChannelMixingMatrix$NullableType$();
+
+  @jni$_.internal
+  @core$_.override
+  String get signature => r'Landroidx/media3/common/audio/ChannelMixingMatrix;';
+
+  @jni$_.internal
+  @core$_.override
+  ChannelMixingMatrix? fromReference(jni$_.JReference reference) =>
+      reference.isNull ? null : ChannelMixingMatrix.fromReference(reference);
+  @jni$_.internal
+  @core$_.override
+  jni$_.JType get superType => const jni$_.$JObject$NullableType$();
+
+  @jni$_.internal
+  @core$_.override
+  jni$_.JType<ChannelMixingMatrix?> get nullableType => this;
+
+  @jni$_.internal
+  @core$_.override
+  final superCount = 1;
+
+  @core$_.override
+  int get hashCode => ($ChannelMixingMatrix$NullableType$).hashCode;
+
+  @core$_.override
+  bool operator ==(Object other) {
+    return other.runtimeType == ($ChannelMixingMatrix$NullableType$) &&
+        other is $ChannelMixingMatrix$NullableType$;
+  }
+}
+
+final class $ChannelMixingMatrix$Type$
+    extends jni$_.JType<ChannelMixingMatrix> {
+  @jni$_.internal
+  const $ChannelMixingMatrix$Type$();
+
+  @jni$_.internal
+  @core$_.override
+  String get signature => r'Landroidx/media3/common/audio/ChannelMixingMatrix;';
+
+  @jni$_.internal
+  @core$_.override
+  ChannelMixingMatrix fromReference(jni$_.JReference reference) =>
+      ChannelMixingMatrix.fromReference(reference);
+  @jni$_.internal
+  @core$_.override
+  jni$_.JType get superType => const jni$_.$JObject$NullableType$();
+
+  @jni$_.internal
+  @core$_.override
+  jni$_.JType<ChannelMixingMatrix?> get nullableType =>
+      const $ChannelMixingMatrix$NullableType$();
+
+  @jni$_.internal
+  @core$_.override
+  final superCount = 1;
+
+  @core$_.override
+  int get hashCode => ($ChannelMixingMatrix$Type$).hashCode;
+
+  @core$_.override
+  bool operator ==(Object other) {
+    return other.runtimeType == ($ChannelMixingMatrix$Type$) &&
+        other is $ChannelMixingMatrix$Type$;
+  }
+}
+
+/// from: `androidx.media3.common.audio.AudioProcessor$AudioFormat`
+class AudioProcessor$AudioFormat extends jni$_.JObject {
+  @jni$_.internal
+  @core$_.override
+  final jni$_.JType<AudioProcessor$AudioFormat> $type;
+
+  @jni$_.internal
+  AudioProcessor$AudioFormat.fromReference(jni$_.JReference reference)
+    : $type = type,
+      super.fromReference(reference);
+
+  static final _class = jni$_.JClass.forName(
+    r'androidx/media3/common/audio/AudioProcessor$AudioFormat',
+  );
+
+  /// The type which includes information such as the signature of this class.
+  static const jni$_.JType<AudioProcessor$AudioFormat?> nullableType =
+      $AudioProcessor$AudioFormat$NullableType$();
+
+  /// The type which includes information such as the signature of this class.
+  static const jni$_.JType<AudioProcessor$AudioFormat> type =
+      $AudioProcessor$AudioFormat$Type$();
+  static final _id_NOT_SET = _class.staticFieldId(
+    r'NOT_SET',
+    r'Landroidx/media3/common/audio/AudioProcessor$AudioFormat;',
+  );
+
+  /// from: `static public final androidx.media3.common.audio.AudioProcessor$AudioFormat NOT_SET`
+  /// The returned object must be released after use, by calling the [release] method.
+  static AudioProcessor$AudioFormat? get NOT_SET => _id_NOT_SET.get(
+    _class,
+    const $AudioProcessor$AudioFormat$NullableType$(),
+  );
+
+  static final _id_sampleRate = _class.instanceFieldId(r'sampleRate', r'I');
+
+  /// from: `public final int sampleRate`
+  int get sampleRate => _id_sampleRate.get(this, const jni$_.jintType());
+
+  static final _id_channelCount = _class.instanceFieldId(r'channelCount', r'I');
+
+  /// from: `public final int channelCount`
+  int get channelCount => _id_channelCount.get(this, const jni$_.jintType());
+
+  static final _id_encoding = _class.instanceFieldId(r'encoding', r'I');
+
+  /// from: `public final int encoding`
+  int get encoding => _id_encoding.get(this, const jni$_.jintType());
+
+  static final _id_bytesPerFrame = _class.instanceFieldId(
+    r'bytesPerFrame',
+    r'I',
+  );
+
+  /// from: `public final int bytesPerFrame`
+  int get bytesPerFrame => _id_bytesPerFrame.get(this, const jni$_.jintType());
+
+  static final _id_new$ = _class.constructorId(
+    r'(Landroidx/media3/common/Format;)V',
+  );
+
+  static final _new$ =
+      jni$_.ProtectedJniExtensions.lookup<
+            jni$_.NativeFunction<
+              jni$_.JniResult Function(
+                jni$_.Pointer<jni$_.Void>,
+                jni$_.JMethodIDPtr,
+                jni$_.VarArgs<(jni$_.Pointer<jni$_.Void>,)>,
+              )
+            >
+          >('globalEnv_NewObject')
+          .asFunction<
+            jni$_.JniResult Function(
+              jni$_.Pointer<jni$_.Void>,
+              jni$_.JMethodIDPtr,
+              jni$_.Pointer<jni$_.Void>,
+            )
+          >();
+
+  /// from: `public void <init>(androidx.media3.common.Format format)`
+  /// The returned object must be released after use, by calling the [release] method.
+  factory AudioProcessor$AudioFormat(jni$_.JObject? format) {
+    final _$format = format?.reference ?? jni$_.jNullReference;
+    return AudioProcessor$AudioFormat.fromReference(
+      _new$(
+        _class.reference.pointer,
+        _id_new$ as jni$_.JMethodIDPtr,
+        _$format.pointer,
+      ).reference,
+    );
+  }
+
+  static final _id_new$1 = _class.constructorId(r'(III)V');
+
+  static final _new$1 =
+      jni$_.ProtectedJniExtensions.lookup<
+            jni$_.NativeFunction<
+              jni$_.JniResult Function(
+                jni$_.Pointer<jni$_.Void>,
+                jni$_.JMethodIDPtr,
+                jni$_.VarArgs<(jni$_.Int32, jni$_.Int32, jni$_.Int32)>,
+              )
+            >
+          >('globalEnv_NewObject')
+          .asFunction<
+            jni$_.JniResult Function(
+              jni$_.Pointer<jni$_.Void>,
+              jni$_.JMethodIDPtr,
+              int,
+              int,
+              int,
+            )
+          >();
+
+  /// from: `public void <init>(int i, int i1, int i2)`
+  /// The returned object must be released after use, by calling the [release] method.
+  factory AudioProcessor$AudioFormat.new$1(int i, int i1, int i2) {
+    return AudioProcessor$AudioFormat.fromReference(
+      _new$1(
+        _class.reference.pointer,
+        _id_new$1 as jni$_.JMethodIDPtr,
+        i,
+        i1,
+        i2,
+      ).reference,
+    );
+  }
+
+  static final _id_toString$1 = _class.instanceMethodId(
+    r'toString',
+    r'()Ljava/lang/String;',
+  );
+
+  static final _toString$1 =
+      jni$_.ProtectedJniExtensions.lookup<
+            jni$_.NativeFunction<
+              jni$_.JniResult Function(
+                jni$_.Pointer<jni$_.Void>,
+                jni$_.JMethodIDPtr,
+              )
+            >
+          >('globalEnv_CallObjectMethod')
+          .asFunction<
+            jni$_.JniResult Function(
+              jni$_.Pointer<jni$_.Void>,
+              jni$_.JMethodIDPtr,
+            )
+          >();
+
+  /// from: `public java.lang.String toString()`
+  /// The returned object must be released after use, by calling the [release] method.
+  jni$_.JString? toString$1() {
+    return _toString$1(
+      reference.pointer,
+      _id_toString$1 as jni$_.JMethodIDPtr,
+    ).object<jni$_.JString?>(const jni$_.$JString$NullableType$());
+  }
+
+  static final _id_equals = _class.instanceMethodId(
+    r'equals',
+    r'(Ljava/lang/Object;)Z',
+  );
+
+  static final _equals =
+      jni$_.ProtectedJniExtensions.lookup<
+            jni$_.NativeFunction<
+              jni$_.JniResult Function(
+                jni$_.Pointer<jni$_.Void>,
+                jni$_.JMethodIDPtr,
+                jni$_.VarArgs<(jni$_.Pointer<jni$_.Void>,)>,
+              )
+            >
+          >('globalEnv_CallBooleanMethod')
+          .asFunction<
+            jni$_.JniResult Function(
+              jni$_.Pointer<jni$_.Void>,
+              jni$_.JMethodIDPtr,
+              jni$_.Pointer<jni$_.Void>,
+            )
+          >();
+
+  /// from: `public boolean equals(java.lang.Object object)`
+  bool equals(jni$_.JObject? object) {
+    final _$object = object?.reference ?? jni$_.jNullReference;
+    return _equals(
+      reference.pointer,
+      _id_equals as jni$_.JMethodIDPtr,
+      _$object.pointer,
+    ).boolean;
+  }
+
+  static final _id_hashCode$1 = _class.instanceMethodId(r'hashCode', r'()I');
+
+  static final _hashCode$1 =
+      jni$_.ProtectedJniExtensions.lookup<
+            jni$_.NativeFunction<
+              jni$_.JniResult Function(
+                jni$_.Pointer<jni$_.Void>,
+                jni$_.JMethodIDPtr,
+              )
+            >
+          >('globalEnv_CallIntMethod')
+          .asFunction<
+            jni$_.JniResult Function(
+              jni$_.Pointer<jni$_.Void>,
+              jni$_.JMethodIDPtr,
+            )
+          >();
+
+  /// from: `public int hashCode()`
+  int hashCode$1() {
+    return _hashCode$1(
+      reference.pointer,
+      _id_hashCode$1 as jni$_.JMethodIDPtr,
+    ).integer;
+  }
+}
+
+final class $AudioProcessor$AudioFormat$NullableType$
+    extends jni$_.JType<AudioProcessor$AudioFormat?> {
+  @jni$_.internal
+  const $AudioProcessor$AudioFormat$NullableType$();
+
+  @jni$_.internal
+  @core$_.override
+  String get signature =>
+      r'Landroidx/media3/common/audio/AudioProcessor$AudioFormat;';
+
+  @jni$_.internal
+  @core$_.override
+  AudioProcessor$AudioFormat? fromReference(jni$_.JReference reference) =>
+      reference.isNull
+      ? null
+      : AudioProcessor$AudioFormat.fromReference(reference);
+  @jni$_.internal
+  @core$_.override
+  jni$_.JType get superType => const jni$_.$JObject$NullableType$();
+
+  @jni$_.internal
+  @core$_.override
+  jni$_.JType<AudioProcessor$AudioFormat?> get nullableType => this;
+
+  @jni$_.internal
+  @core$_.override
+  final superCount = 1;
+
+  @core$_.override
+  int get hashCode => ($AudioProcessor$AudioFormat$NullableType$).hashCode;
+
+  @core$_.override
+  bool operator ==(Object other) {
+    return other.runtimeType == ($AudioProcessor$AudioFormat$NullableType$) &&
+        other is $AudioProcessor$AudioFormat$NullableType$;
+  }
+}
+
+final class $AudioProcessor$AudioFormat$Type$
+    extends jni$_.JType<AudioProcessor$AudioFormat> {
+  @jni$_.internal
+  const $AudioProcessor$AudioFormat$Type$();
+
+  @jni$_.internal
+  @core$_.override
+  String get signature =>
+      r'Landroidx/media3/common/audio/AudioProcessor$AudioFormat;';
+
+  @jni$_.internal
+  @core$_.override
+  AudioProcessor$AudioFormat fromReference(jni$_.JReference reference) =>
+      AudioProcessor$AudioFormat.fromReference(reference);
+  @jni$_.internal
+  @core$_.override
+  jni$_.JType get superType => const jni$_.$JObject$NullableType$();
+
+  @jni$_.internal
+  @core$_.override
+  jni$_.JType<AudioProcessor$AudioFormat?> get nullableType =>
+      const $AudioProcessor$AudioFormat$NullableType$();
+
+  @jni$_.internal
+  @core$_.override
+  final superCount = 1;
+
+  @core$_.override
+  int get hashCode => ($AudioProcessor$AudioFormat$Type$).hashCode;
+
+  @core$_.override
+  bool operator ==(Object other) {
+    return other.runtimeType == ($AudioProcessor$AudioFormat$Type$) &&
+        other is $AudioProcessor$AudioFormat$Type$;
+  }
+}
+
+/// from: `androidx.media3.common.audio.AudioProcessor$StreamMetadata`
+class AudioProcessor$StreamMetadata extends jni$_.JObject {
+  @jni$_.internal
+  @core$_.override
+  final jni$_.JType<AudioProcessor$StreamMetadata> $type;
+
+  @jni$_.internal
+  AudioProcessor$StreamMetadata.fromReference(jni$_.JReference reference)
+    : $type = type,
+      super.fromReference(reference);
+
+  static final _class = jni$_.JClass.forName(
+    r'androidx/media3/common/audio/AudioProcessor$StreamMetadata',
+  );
+
+  /// The type which includes information such as the signature of this class.
+  static const jni$_.JType<AudioProcessor$StreamMetadata?> nullableType =
+      $AudioProcessor$StreamMetadata$NullableType$();
+
+  /// The type which includes information such as the signature of this class.
+  static const jni$_.JType<AudioProcessor$StreamMetadata> type =
+      $AudioProcessor$StreamMetadata$Type$();
+  static final _id_DEFAULT = _class.staticFieldId(
+    r'DEFAULT',
+    r'Landroidx/media3/common/audio/AudioProcessor$StreamMetadata;',
+  );
+
+  /// from: `static public final androidx.media3.common.audio.AudioProcessor$StreamMetadata DEFAULT`
+  /// The returned object must be released after use, by calling the [release] method.
+  static AudioProcessor$StreamMetadata? get DEFAULT => _id_DEFAULT.get(
+    _class,
+    const $AudioProcessor$StreamMetadata$NullableType$(),
+  );
+
+  static final _id_positionOffsetUs = _class.instanceFieldId(
+    r'positionOffsetUs',
+    r'J',
+  );
+
+  /// from: `public final long positionOffsetUs`
+  int get positionOffsetUs =>
+      _id_positionOffsetUs.get(this, const jni$_.jlongType());
+
+  static final _id_new$ = _class.constructorId(r'(J)V');
+
+  static final _new$ =
+      jni$_.ProtectedJniExtensions.lookup<
+            jni$_.NativeFunction<
+              jni$_.JniResult Function(
+                jni$_.Pointer<jni$_.Void>,
+                jni$_.JMethodIDPtr,
+                jni$_.VarArgs<(jni$_.Int64,)>,
+              )
+            >
+          >('globalEnv_NewObject')
+          .asFunction<
+            jni$_.JniResult Function(
+              jni$_.Pointer<jni$_.Void>,
+              jni$_.JMethodIDPtr,
+              int,
+            )
+          >();
+
+  /// from: `public void <init>(long j)`
+  /// The returned object must be released after use, by calling the [release] method.
+  factory AudioProcessor$StreamMetadata(int j) {
+    return AudioProcessor$StreamMetadata.fromReference(
+      _new$(
+        _class.reference.pointer,
+        _id_new$ as jni$_.JMethodIDPtr,
+        j,
+      ).reference,
+    );
+  }
+}
+
+final class $AudioProcessor$StreamMetadata$NullableType$
+    extends jni$_.JType<AudioProcessor$StreamMetadata?> {
+  @jni$_.internal
+  const $AudioProcessor$StreamMetadata$NullableType$();
+
+  @jni$_.internal
+  @core$_.override
+  String get signature =>
+      r'Landroidx/media3/common/audio/AudioProcessor$StreamMetadata;';
+
+  @jni$_.internal
+  @core$_.override
+  AudioProcessor$StreamMetadata? fromReference(jni$_.JReference reference) =>
+      reference.isNull
+      ? null
+      : AudioProcessor$StreamMetadata.fromReference(reference);
+  @jni$_.internal
+  @core$_.override
+  jni$_.JType get superType => const jni$_.$JObject$NullableType$();
+
+  @jni$_.internal
+  @core$_.override
+  jni$_.JType<AudioProcessor$StreamMetadata?> get nullableType => this;
+
+  @jni$_.internal
+  @core$_.override
+  final superCount = 1;
+
+  @core$_.override
+  int get hashCode => ($AudioProcessor$StreamMetadata$NullableType$).hashCode;
+
+  @core$_.override
+  bool operator ==(Object other) {
+    return other.runtimeType ==
+            ($AudioProcessor$StreamMetadata$NullableType$) &&
+        other is $AudioProcessor$StreamMetadata$NullableType$;
+  }
+}
+
+final class $AudioProcessor$StreamMetadata$Type$
+    extends jni$_.JType<AudioProcessor$StreamMetadata> {
+  @jni$_.internal
+  const $AudioProcessor$StreamMetadata$Type$();
+
+  @jni$_.internal
+  @core$_.override
+  String get signature =>
+      r'Landroidx/media3/common/audio/AudioProcessor$StreamMetadata;';
+
+  @jni$_.internal
+  @core$_.override
+  AudioProcessor$StreamMetadata fromReference(jni$_.JReference reference) =>
+      AudioProcessor$StreamMetadata.fromReference(reference);
+  @jni$_.internal
+  @core$_.override
+  jni$_.JType get superType => const jni$_.$JObject$NullableType$();
+
+  @jni$_.internal
+  @core$_.override
+  jni$_.JType<AudioProcessor$StreamMetadata?> get nullableType =>
+      const $AudioProcessor$StreamMetadata$NullableType$();
+
+  @jni$_.internal
+  @core$_.override
+  final superCount = 1;
+
+  @core$_.override
+  int get hashCode => ($AudioProcessor$StreamMetadata$Type$).hashCode;
+
+  @core$_.override
+  bool operator ==(Object other) {
+    return other.runtimeType == ($AudioProcessor$StreamMetadata$Type$) &&
+        other is $AudioProcessor$StreamMetadata$Type$;
+  }
+}
+
+/// from: `androidx.media3.common.audio.AudioProcessor$UnhandledAudioFormatException`
+class AudioProcessor$UnhandledAudioFormatException extends jni$_.JObject {
+  @jni$_.internal
+  @core$_.override
+  final jni$_.JType<AudioProcessor$UnhandledAudioFormatException> $type;
+
+  @jni$_.internal
+  AudioProcessor$UnhandledAudioFormatException.fromReference(
+    jni$_.JReference reference,
+  ) : $type = type,
+      super.fromReference(reference);
+
+  static final _class = jni$_.JClass.forName(
+    r'androidx/media3/common/audio/AudioProcessor$UnhandledAudioFormatException',
+  );
+
+  /// The type which includes information such as the signature of this class.
+  static const jni$_.JType<AudioProcessor$UnhandledAudioFormatException?>
+  nullableType = $AudioProcessor$UnhandledAudioFormatException$NullableType$();
+
+  /// The type which includes information such as the signature of this class.
+  static const jni$_.JType<AudioProcessor$UnhandledAudioFormatException> type =
+      $AudioProcessor$UnhandledAudioFormatException$Type$();
+  static final _id_inputAudioFormat = _class.instanceFieldId(
+    r'inputAudioFormat',
+    r'Landroidx/media3/common/audio/AudioProcessor$AudioFormat;',
+  );
+
+  /// from: `public final androidx.media3.common.audio.AudioProcessor$AudioFormat inputAudioFormat`
+  /// The returned object must be released after use, by calling the [release] method.
+  AudioProcessor$AudioFormat? get inputAudioFormat => _id_inputAudioFormat.get(
+    this,
+    const $AudioProcessor$AudioFormat$NullableType$(),
+  );
+
+  static final _id_new$ = _class.constructorId(
+    r'(Landroidx/media3/common/audio/AudioProcessor$AudioFormat;)V',
+  );
+
+  static final _new$ =
+      jni$_.ProtectedJniExtensions.lookup<
+            jni$_.NativeFunction<
+              jni$_.JniResult Function(
+                jni$_.Pointer<jni$_.Void>,
+                jni$_.JMethodIDPtr,
+                jni$_.VarArgs<(jni$_.Pointer<jni$_.Void>,)>,
+              )
+            >
+          >('globalEnv_NewObject')
+          .asFunction<
+            jni$_.JniResult Function(
+              jni$_.Pointer<jni$_.Void>,
+              jni$_.JMethodIDPtr,
+              jni$_.Pointer<jni$_.Void>,
+            )
+          >();
+
+  /// from: `public void <init>(androidx.media3.common.audio.AudioProcessor$AudioFormat audioFormat)`
+  /// The returned object must be released after use, by calling the [release] method.
+  factory AudioProcessor$UnhandledAudioFormatException(
+    AudioProcessor$AudioFormat? audioFormat,
+  ) {
+    final _$audioFormat = audioFormat?.reference ?? jni$_.jNullReference;
+    return AudioProcessor$UnhandledAudioFormatException.fromReference(
+      _new$(
+        _class.reference.pointer,
+        _id_new$ as jni$_.JMethodIDPtr,
+        _$audioFormat.pointer,
+      ).reference,
+    );
+  }
+
+  static final _id_new$1 = _class.constructorId(
+    r'(Ljava/lang/String;Landroidx/media3/common/audio/AudioProcessor$AudioFormat;)V',
+  );
+
+  static final _new$1 =
+      jni$_.ProtectedJniExtensions.lookup<
+            jni$_.NativeFunction<
+              jni$_.JniResult Function(
+                jni$_.Pointer<jni$_.Void>,
+                jni$_.JMethodIDPtr,
+                jni$_.VarArgs<
+                  (jni$_.Pointer<jni$_.Void>, jni$_.Pointer<jni$_.Void>)
+                >,
+              )
+            >
+          >('globalEnv_NewObject')
+          .asFunction<
+            jni$_.JniResult Function(
+              jni$_.Pointer<jni$_.Void>,
+              jni$_.JMethodIDPtr,
+              jni$_.Pointer<jni$_.Void>,
+              jni$_.Pointer<jni$_.Void>,
+            )
+          >();
+
+  /// from: `public void <init>(java.lang.String string, androidx.media3.common.audio.AudioProcessor$AudioFormat audioFormat)`
+  /// The returned object must be released after use, by calling the [release] method.
+  factory AudioProcessor$UnhandledAudioFormatException.new$1(
+    jni$_.JString? string,
+    AudioProcessor$AudioFormat? audioFormat,
+  ) {
+    final _$string = string?.reference ?? jni$_.jNullReference;
+    final _$audioFormat = audioFormat?.reference ?? jni$_.jNullReference;
+    return AudioProcessor$UnhandledAudioFormatException.fromReference(
+      _new$1(
+        _class.reference.pointer,
+        _id_new$1 as jni$_.JMethodIDPtr,
+        _$string.pointer,
+        _$audioFormat.pointer,
+      ).reference,
+    );
+  }
+}
+
+final class $AudioProcessor$UnhandledAudioFormatException$NullableType$
+    extends jni$_.JType<AudioProcessor$UnhandledAudioFormatException?> {
+  @jni$_.internal
+  const $AudioProcessor$UnhandledAudioFormatException$NullableType$();
+
+  @jni$_.internal
+  @core$_.override
+  String get signature =>
+      r'Landroidx/media3/common/audio/AudioProcessor$UnhandledAudioFormatException;';
+
+  @jni$_.internal
+  @core$_.override
+  AudioProcessor$UnhandledAudioFormatException? fromReference(
+    jni$_.JReference reference,
+  ) => reference.isNull
+      ? null
+      : AudioProcessor$UnhandledAudioFormatException.fromReference(reference);
+  @jni$_.internal
+  @core$_.override
+  jni$_.JType get superType => const jni$_.$JObject$NullableType$();
+
+  @jni$_.internal
+  @core$_.override
+  jni$_.JType<AudioProcessor$UnhandledAudioFormatException?> get nullableType =>
+      this;
+
+  @jni$_.internal
+  @core$_.override
+  final superCount = 1;
+
+  @core$_.override
+  int get hashCode =>
+      ($AudioProcessor$UnhandledAudioFormatException$NullableType$).hashCode;
+
+  @core$_.override
+  bool operator ==(Object other) {
+    return other.runtimeType ==
+            ($AudioProcessor$UnhandledAudioFormatException$NullableType$) &&
+        other is $AudioProcessor$UnhandledAudioFormatException$NullableType$;
+  }
+}
+
+final class $AudioProcessor$UnhandledAudioFormatException$Type$
+    extends jni$_.JType<AudioProcessor$UnhandledAudioFormatException> {
+  @jni$_.internal
+  const $AudioProcessor$UnhandledAudioFormatException$Type$();
+
+  @jni$_.internal
+  @core$_.override
+  String get signature =>
+      r'Landroidx/media3/common/audio/AudioProcessor$UnhandledAudioFormatException;';
+
+  @jni$_.internal
+  @core$_.override
+  AudioProcessor$UnhandledAudioFormatException fromReference(
+    jni$_.JReference reference,
+  ) => AudioProcessor$UnhandledAudioFormatException.fromReference(reference);
+  @jni$_.internal
+  @core$_.override
+  jni$_.JType get superType => const jni$_.$JObject$NullableType$();
+
+  @jni$_.internal
+  @core$_.override
+  jni$_.JType<AudioProcessor$UnhandledAudioFormatException?> get nullableType =>
+      const $AudioProcessor$UnhandledAudioFormatException$NullableType$();
+
+  @jni$_.internal
+  @core$_.override
+  final superCount = 1;
+
+  @core$_.override
+  int get hashCode =>
+      ($AudioProcessor$UnhandledAudioFormatException$Type$).hashCode;
+
+  @core$_.override
+  bool operator ==(Object other) {
+    return other.runtimeType ==
+            ($AudioProcessor$UnhandledAudioFormatException$Type$) &&
+        other is $AudioProcessor$UnhandledAudioFormatException$Type$;
+  }
+}
+
+/// from: `androidx.media3.common.audio.AudioProcessor`
+class AudioProcessor extends jni$_.JObject {
+  @jni$_.internal
+  @core$_.override
+  final jni$_.JType<AudioProcessor> $type;
+
+  @jni$_.internal
+  AudioProcessor.fromReference(jni$_.JReference reference)
+    : $type = type,
+      super.fromReference(reference);
+
+  static final _class = jni$_.JClass.forName(
+    r'androidx/media3/common/audio/AudioProcessor',
+  );
+
+  /// The type which includes information such as the signature of this class.
+  static const jni$_.JType<AudioProcessor?> nullableType =
+      $AudioProcessor$NullableType$();
+
+  /// The type which includes information such as the signature of this class.
+  static const jni$_.JType<AudioProcessor> type = $AudioProcessor$Type$();
+  static final _id_EMPTY_BUFFER = _class.staticFieldId(
+    r'EMPTY_BUFFER',
+    r'Ljava/nio/ByteBuffer;',
+  );
+
+  /// from: `static public final java.nio.ByteBuffer EMPTY_BUFFER`
+  /// The returned object must be released after use, by calling the [release] method.
+  static jni$_.JByteBuffer? get EMPTY_BUFFER =>
+      _id_EMPTY_BUFFER.get(_class, const jni$_.$JByteBuffer$NullableType$());
+
+  static final _id_getDurationAfterProcessorApplied = _class.instanceMethodId(
+    r'getDurationAfterProcessorApplied',
+    r'(J)J',
+  );
+
+  static final _getDurationAfterProcessorApplied =
+      jni$_.ProtectedJniExtensions.lookup<
+            jni$_.NativeFunction<
+              jni$_.JniResult Function(
+                jni$_.Pointer<jni$_.Void>,
+                jni$_.JMethodIDPtr,
+                jni$_.VarArgs<(jni$_.Int64,)>,
+              )
+            >
+          >('globalEnv_CallLongMethod')
+          .asFunction<
+            jni$_.JniResult Function(
+              jni$_.Pointer<jni$_.Void>,
+              jni$_.JMethodIDPtr,
+              int,
+            )
+          >();
+
+  /// from: `public long getDurationAfterProcessorApplied(long j)`
+  int getDurationAfterProcessorApplied(int j) {
+    return _getDurationAfterProcessorApplied(
+      reference.pointer,
+      _id_getDurationAfterProcessorApplied as jni$_.JMethodIDPtr,
+      j,
+    ).long;
+  }
+
+  static final _id_configure = _class.instanceMethodId(
+    r'configure',
+    r'(Landroidx/media3/common/audio/AudioProcessor$AudioFormat;)Landroidx/media3/common/audio/AudioProcessor$AudioFormat;',
+  );
+
+  static final _configure =
+      jni$_.ProtectedJniExtensions.lookup<
+            jni$_.NativeFunction<
+              jni$_.JniResult Function(
+                jni$_.Pointer<jni$_.Void>,
+                jni$_.JMethodIDPtr,
+                jni$_.VarArgs<(jni$_.Pointer<jni$_.Void>,)>,
+              )
+            >
+          >('globalEnv_CallObjectMethod')
+          .asFunction<
+            jni$_.JniResult Function(
+              jni$_.Pointer<jni$_.Void>,
+              jni$_.JMethodIDPtr,
+              jni$_.Pointer<jni$_.Void>,
+            )
+          >();
+
+  /// from: `public abstract androidx.media3.common.audio.AudioProcessor$AudioFormat configure(androidx.media3.common.audio.AudioProcessor$AudioFormat audioFormat)`
+  /// The returned object must be released after use, by calling the [release] method.
+  AudioProcessor$AudioFormat? configure(
+    AudioProcessor$AudioFormat? audioFormat,
+  ) {
+    final _$audioFormat = audioFormat?.reference ?? jni$_.jNullReference;
+    return _configure(
+      reference.pointer,
+      _id_configure as jni$_.JMethodIDPtr,
+      _$audioFormat.pointer,
+    ).object<AudioProcessor$AudioFormat?>(
+      const $AudioProcessor$AudioFormat$NullableType$(),
+    );
+  }
+
+  static final _id_isActive = _class.instanceMethodId(r'isActive', r'()Z');
+
+  static final _isActive =
+      jni$_.ProtectedJniExtensions.lookup<
+            jni$_.NativeFunction<
+              jni$_.JniResult Function(
+                jni$_.Pointer<jni$_.Void>,
+                jni$_.JMethodIDPtr,
+              )
+            >
+          >('globalEnv_CallBooleanMethod')
+          .asFunction<
+            jni$_.JniResult Function(
+              jni$_.Pointer<jni$_.Void>,
+              jni$_.JMethodIDPtr,
+            )
+          >();
+
+  /// from: `public abstract boolean isActive()`
+  bool isActive() {
+    return _isActive(
+      reference.pointer,
+      _id_isActive as jni$_.JMethodIDPtr,
+    ).boolean;
+  }
+
+  static final _id_queueInput = _class.instanceMethodId(
+    r'queueInput',
+    r'(Ljava/nio/ByteBuffer;)V',
+  );
+
+  static final _queueInput =
+      jni$_.ProtectedJniExtensions.lookup<
+            jni$_.NativeFunction<
+              jni$_.JThrowablePtr Function(
+                jni$_.Pointer<jni$_.Void>,
+                jni$_.JMethodIDPtr,
+                jni$_.VarArgs<(jni$_.Pointer<jni$_.Void>,)>,
+              )
+            >
+          >('globalEnv_CallVoidMethod')
+          .asFunction<
+            jni$_.JThrowablePtr Function(
+              jni$_.Pointer<jni$_.Void>,
+              jni$_.JMethodIDPtr,
+              jni$_.Pointer<jni$_.Void>,
+            )
+          >();
+
+  /// from: `public abstract void queueInput(java.nio.ByteBuffer byteBuffer)`
+  void queueInput(jni$_.JByteBuffer? byteBuffer) {
+    final _$byteBuffer = byteBuffer?.reference ?? jni$_.jNullReference;
+    _queueInput(
+      reference.pointer,
+      _id_queueInput as jni$_.JMethodIDPtr,
+      _$byteBuffer.pointer,
+    ).check();
+  }
+
+  static final _id_queueEndOfStream = _class.instanceMethodId(
+    r'queueEndOfStream',
+    r'()V',
+  );
+
+  static final _queueEndOfStream =
+      jni$_.ProtectedJniExtensions.lookup<
+            jni$_.NativeFunction<
+              jni$_.JThrowablePtr Function(
+                jni$_.Pointer<jni$_.Void>,
+                jni$_.JMethodIDPtr,
+              )
+            >
+          >('globalEnv_CallVoidMethod')
+          .asFunction<
+            jni$_.JThrowablePtr Function(
+              jni$_.Pointer<jni$_.Void>,
+              jni$_.JMethodIDPtr,
+            )
+          >();
+
+  /// from: `public abstract void queueEndOfStream()`
+  void queueEndOfStream() {
+    _queueEndOfStream(
+      reference.pointer,
+      _id_queueEndOfStream as jni$_.JMethodIDPtr,
+    ).check();
+  }
+
+  static final _id_getOutput = _class.instanceMethodId(
+    r'getOutput',
+    r'()Ljava/nio/ByteBuffer;',
+  );
+
+  static final _getOutput =
+      jni$_.ProtectedJniExtensions.lookup<
+            jni$_.NativeFunction<
+              jni$_.JniResult Function(
+                jni$_.Pointer<jni$_.Void>,
+                jni$_.JMethodIDPtr,
+              )
+            >
+          >('globalEnv_CallObjectMethod')
+          .asFunction<
+            jni$_.JniResult Function(
+              jni$_.Pointer<jni$_.Void>,
+              jni$_.JMethodIDPtr,
+            )
+          >();
+
+  /// from: `public abstract java.nio.ByteBuffer getOutput()`
+  /// The returned object must be released after use, by calling the [release] method.
+  jni$_.JByteBuffer? getOutput() {
+    return _getOutput(
+      reference.pointer,
+      _id_getOutput as jni$_.JMethodIDPtr,
+    ).object<jni$_.JByteBuffer?>(const jni$_.$JByteBuffer$NullableType$());
+  }
+
+  static final _id_isEnded = _class.instanceMethodId(r'isEnded', r'()Z');
+
+  static final _isEnded =
+      jni$_.ProtectedJniExtensions.lookup<
+            jni$_.NativeFunction<
+              jni$_.JniResult Function(
+                jni$_.Pointer<jni$_.Void>,
+                jni$_.JMethodIDPtr,
+              )
+            >
+          >('globalEnv_CallBooleanMethod')
+          .asFunction<
+            jni$_.JniResult Function(
+              jni$_.Pointer<jni$_.Void>,
+              jni$_.JMethodIDPtr,
+            )
+          >();
+
+  /// from: `public abstract boolean isEnded()`
+  bool isEnded() {
+    return _isEnded(
+      reference.pointer,
+      _id_isEnded as jni$_.JMethodIDPtr,
+    ).boolean;
+  }
+
+  static final _id_flush = _class.instanceMethodId(r'flush', r'()V');
+
+  static final _flush =
+      jni$_.ProtectedJniExtensions.lookup<
+            jni$_.NativeFunction<
+              jni$_.JThrowablePtr Function(
+                jni$_.Pointer<jni$_.Void>,
+                jni$_.JMethodIDPtr,
+              )
+            >
+          >('globalEnv_CallVoidMethod')
+          .asFunction<
+            jni$_.JThrowablePtr Function(
+              jni$_.Pointer<jni$_.Void>,
+              jni$_.JMethodIDPtr,
+            )
+          >();
+
+  /// from: `public void flush()`
+  void flush() {
+    _flush(reference.pointer, _id_flush as jni$_.JMethodIDPtr).check();
+  }
+
+  static final _id_flush$1 = _class.instanceMethodId(
+    r'flush',
+    r'(Landroidx/media3/common/audio/AudioProcessor$StreamMetadata;)V',
+  );
+
+  static final _flush$1 =
+      jni$_.ProtectedJniExtensions.lookup<
+            jni$_.NativeFunction<
+              jni$_.JThrowablePtr Function(
+                jni$_.Pointer<jni$_.Void>,
+                jni$_.JMethodIDPtr,
+                jni$_.VarArgs<(jni$_.Pointer<jni$_.Void>,)>,
+              )
+            >
+          >('globalEnv_CallVoidMethod')
+          .asFunction<
+            jni$_.JThrowablePtr Function(
+              jni$_.Pointer<jni$_.Void>,
+              jni$_.JMethodIDPtr,
+              jni$_.Pointer<jni$_.Void>,
+            )
+          >();
+
+  /// from: `public void flush(androidx.media3.common.audio.AudioProcessor$StreamMetadata streamMetadata)`
+  void flush$1(AudioProcessor$StreamMetadata? streamMetadata) {
+    final _$streamMetadata = streamMetadata?.reference ?? jni$_.jNullReference;
+    _flush$1(
+      reference.pointer,
+      _id_flush$1 as jni$_.JMethodIDPtr,
+      _$streamMetadata.pointer,
+    ).check();
+  }
+
+  static final _id_reset = _class.instanceMethodId(r'reset', r'()V');
+
+  static final _reset =
+      jni$_.ProtectedJniExtensions.lookup<
+            jni$_.NativeFunction<
+              jni$_.JThrowablePtr Function(
+                jni$_.Pointer<jni$_.Void>,
+                jni$_.JMethodIDPtr,
+              )
+            >
+          >('globalEnv_CallVoidMethod')
+          .asFunction<
+            jni$_.JThrowablePtr Function(
+              jni$_.Pointer<jni$_.Void>,
+              jni$_.JMethodIDPtr,
+            )
+          >();
+
+  /// from: `public abstract void reset()`
+  void reset() {
+    _reset(reference.pointer, _id_reset as jni$_.JMethodIDPtr).check();
+  }
+
+  /// Maps a specific port to the implemented interface.
+  static final core$_.Map<int, $AudioProcessor> _$impls = {};
+  static jni$_.JObjectPtr _$invoke(
+    int port,
+    jni$_.JObjectPtr descriptor,
+    jni$_.JObjectPtr args,
+  ) {
+    return _$invokeMethod(
+      port,
+      jni$_.MethodInvocation.fromAddresses(0, descriptor.address, args.address),
+    );
+  }
+
+  static final jni$_.Pointer<
+    jni$_.NativeFunction<
+      jni$_.JObjectPtr Function(jni$_.Int64, jni$_.JObjectPtr, jni$_.JObjectPtr)
+    >
+  >
+  _$invokePointer = jni$_.Pointer.fromFunction(_$invoke);
+
+  static jni$_.Pointer<jni$_.Void> _$invokeMethod(
+    int $p,
+    jni$_.MethodInvocation $i,
+  ) {
+    try {
+      final $d = $i.methodDescriptor.toDartString(releaseOriginal: true);
+      final $a = $i.args;
+      if ($d == r'getDurationAfterProcessorApplied(J)J') {
+        final $r = _$impls[$p]!.getDurationAfterProcessorApplied(
+          $a![0]!
+              .as(const jni$_.$JLong$Type$(), releaseOriginal: true)
+              .longValue(releaseOriginal: true),
+        );
+        return jni$_.JLong($r).reference.toPointer();
+      }
+      if ($d ==
+          r'configure(Landroidx/media3/common/audio/AudioProcessor$AudioFormat;)Landroidx/media3/common/audio/AudioProcessor$AudioFormat;') {
+        final $r = _$impls[$p]!.configure(
+          $a![0]?.as(
+            const $AudioProcessor$AudioFormat$Type$(),
+            releaseOriginal: true,
+          ),
+        );
+        return ($r as jni$_.JObject?)
+                ?.as(const jni$_.$JObject$Type$())
+                .reference
+                .toPointer() ??
+            jni$_.nullptr;
+      }
+      if ($d == r'isActive()Z') {
+        final $r = _$impls[$p]!.isActive();
+        return jni$_.JBoolean($r).reference.toPointer();
+      }
+      if ($d == r'queueInput(Ljava/nio/ByteBuffer;)V') {
+        _$impls[$p]!.queueInput(
+          $a![0]?.as(const jni$_.$JByteBuffer$Type$(), releaseOriginal: true),
+        );
+        return jni$_.nullptr;
+      }
+      if ($d == r'queueEndOfStream()V') {
+        _$impls[$p]!.queueEndOfStream();
+        return jni$_.nullptr;
+      }
+      if ($d == r'getOutput()Ljava/nio/ByteBuffer;') {
+        final $r = _$impls[$p]!.getOutput();
+        return ($r as jni$_.JObject?)
+                ?.as(const jni$_.$JObject$Type$())
+                .reference
+                .toPointer() ??
+            jni$_.nullptr;
+      }
+      if ($d == r'isEnded()Z') {
+        final $r = _$impls[$p]!.isEnded();
+        return jni$_.JBoolean($r).reference.toPointer();
+      }
+      if ($d == r'flush()V') {
+        _$impls[$p]!.flush();
+        return jni$_.nullptr;
+      }
+      if ($d ==
+          r'flush(Landroidx/media3/common/audio/AudioProcessor$StreamMetadata;)V') {
+        _$impls[$p]!.flush$1(
+          $a![0]?.as(
+            const $AudioProcessor$StreamMetadata$Type$(),
+            releaseOriginal: true,
+          ),
+        );
+        return jni$_.nullptr;
+      }
+      if ($d == r'reset()V') {
+        _$impls[$p]!.reset();
+        return jni$_.nullptr;
+      }
+    } catch (e) {
+      return jni$_.ProtectedJniExtensions.newDartException(e);
+    }
+    return jni$_.nullptr;
+  }
+
+  static void implementIn(
+    jni$_.JImplementer implementer,
+    $AudioProcessor $impl,
+  ) {
+    late final jni$_.RawReceivePort $p;
+    $p = jni$_.RawReceivePort(($m) {
+      if ($m == null) {
+        _$impls.remove($p.sendPort.nativePort);
+        $p.close();
+        return;
+      }
+      final $i = jni$_.MethodInvocation.fromMessage($m);
+      final $r = _$invokeMethod($p.sendPort.nativePort, $i);
+      jni$_.ProtectedJniExtensions.returnResult($i.result, $r);
+    });
+    implementer.add(
+      r'androidx.media3.common.audio.AudioProcessor',
+      $p,
+      _$invokePointer,
+      [
+        if ($impl.queueInput$async) r'queueInput(Ljava/nio/ByteBuffer;)V',
+        if ($impl.queueEndOfStream$async) r'queueEndOfStream()V',
+        if ($impl.flush$async) r'flush()V',
+        if ($impl.flush$1$async)
+          r'flush(Landroidx/media3/common/audio/AudioProcessor$StreamMetadata;)V',
+        if ($impl.reset$async) r'reset()V',
+      ],
+    );
+    final $a = $p.sendPort.nativePort;
+    _$impls[$a] = $impl;
+  }
+
+  factory AudioProcessor.implement($AudioProcessor $impl) {
+    final $i = jni$_.JImplementer();
+    implementIn($i, $impl);
+    return AudioProcessor.fromReference($i.implementReference());
+  }
+}
+
+abstract base mixin class $AudioProcessor {
+  factory $AudioProcessor({
+    required int Function(int j) getDurationAfterProcessorApplied,
+    required AudioProcessor$AudioFormat? Function(
+      AudioProcessor$AudioFormat? audioFormat,
+    )
+    configure,
+    required bool Function() isActive,
+    required void Function(jni$_.JByteBuffer? byteBuffer) queueInput,
+    bool queueInput$async,
+    required void Function() queueEndOfStream,
+    bool queueEndOfStream$async,
+    required jni$_.JByteBuffer? Function() getOutput,
+    required bool Function() isEnded,
+    required void Function() flush,
+    bool flush$async,
+    required void Function(AudioProcessor$StreamMetadata? streamMetadata)
+    flush$1,
+    bool flush$1$async,
+    required void Function() reset,
+    bool reset$async,
+  }) = _$AudioProcessor;
+
+  int getDurationAfterProcessorApplied(int j);
+  AudioProcessor$AudioFormat? configure(
+    AudioProcessor$AudioFormat? audioFormat,
+  );
+  bool isActive();
+  void queueInput(jni$_.JByteBuffer? byteBuffer);
+  bool get queueInput$async => false;
+  void queueEndOfStream();
+  bool get queueEndOfStream$async => false;
+  jni$_.JByteBuffer? getOutput();
+  bool isEnded();
+  void flush();
+  bool get flush$async => false;
+  void flush$1(AudioProcessor$StreamMetadata? streamMetadata);
+  bool get flush$1$async => false;
+  void reset();
+  bool get reset$async => false;
+}
+
+final class _$AudioProcessor with $AudioProcessor {
+  _$AudioProcessor({
+    required int Function(int j) getDurationAfterProcessorApplied,
+    required AudioProcessor$AudioFormat? Function(
+      AudioProcessor$AudioFormat? audioFormat,
+    )
+    configure,
+    required bool Function() isActive,
+    required void Function(jni$_.JByteBuffer? byteBuffer) queueInput,
+    this.queueInput$async = false,
+    required void Function() queueEndOfStream,
+    this.queueEndOfStream$async = false,
+    required jni$_.JByteBuffer? Function() getOutput,
+    required bool Function() isEnded,
+    required void Function() flush,
+    this.flush$async = false,
+    required void Function(AudioProcessor$StreamMetadata? streamMetadata)
+    flush$1,
+    this.flush$1$async = false,
+    required void Function() reset,
+    this.reset$async = false,
+  }) : _getDurationAfterProcessorApplied = getDurationAfterProcessorApplied,
+       _configure = configure,
+       _isActive = isActive,
+       _queueInput = queueInput,
+       _queueEndOfStream = queueEndOfStream,
+       _getOutput = getOutput,
+       _isEnded = isEnded,
+       _flush = flush,
+       _flush$1 = flush$1,
+       _reset = reset;
+
+  final int Function(int j) _getDurationAfterProcessorApplied;
+  final AudioProcessor$AudioFormat? Function(
+    AudioProcessor$AudioFormat? audioFormat,
+  )
+  _configure;
+  final bool Function() _isActive;
+  final void Function(jni$_.JByteBuffer? byteBuffer) _queueInput;
+  final bool queueInput$async;
+  final void Function() _queueEndOfStream;
+  final bool queueEndOfStream$async;
+  final jni$_.JByteBuffer? Function() _getOutput;
+  final bool Function() _isEnded;
+  final void Function() _flush;
+  final bool flush$async;
+  final void Function(AudioProcessor$StreamMetadata? streamMetadata) _flush$1;
+  final bool flush$1$async;
+  final void Function() _reset;
+  final bool reset$async;
+
+  int getDurationAfterProcessorApplied(int j) {
+    return _getDurationAfterProcessorApplied(j);
+  }
+
+  AudioProcessor$AudioFormat? configure(
+    AudioProcessor$AudioFormat? audioFormat,
+  ) {
+    return _configure(audioFormat);
+  }
+
+  bool isActive() {
+    return _isActive();
+  }
+
+  void queueInput(jni$_.JByteBuffer? byteBuffer) {
+    return _queueInput(byteBuffer);
+  }
+
+  void queueEndOfStream() {
+    return _queueEndOfStream();
+  }
+
+  jni$_.JByteBuffer? getOutput() {
+    return _getOutput();
+  }
+
+  bool isEnded() {
+    return _isEnded();
+  }
+
+  void flush() {
+    return _flush();
+  }
+
+  void flush$1(AudioProcessor$StreamMetadata? streamMetadata) {
+    return _flush$1(streamMetadata);
+  }
+
+  void reset() {
+    return _reset();
+  }
+}
+
+final class $AudioProcessor$NullableType$ extends jni$_.JType<AudioProcessor?> {
+  @jni$_.internal
+  const $AudioProcessor$NullableType$();
+
+  @jni$_.internal
+  @core$_.override
+  String get signature => r'Landroidx/media3/common/audio/AudioProcessor;';
+
+  @jni$_.internal
+  @core$_.override
+  AudioProcessor? fromReference(jni$_.JReference reference) =>
+      reference.isNull ? null : AudioProcessor.fromReference(reference);
+  @jni$_.internal
+  @core$_.override
+  jni$_.JType get superType => const jni$_.$JObject$NullableType$();
+
+  @jni$_.internal
+  @core$_.override
+  jni$_.JType<AudioProcessor?> get nullableType => this;
+
+  @jni$_.internal
+  @core$_.override
+  final superCount = 1;
+
+  @core$_.override
+  int get hashCode => ($AudioProcessor$NullableType$).hashCode;
+
+  @core$_.override
+  bool operator ==(Object other) {
+    return other.runtimeType == ($AudioProcessor$NullableType$) &&
+        other is $AudioProcessor$NullableType$;
+  }
+}
+
+final class $AudioProcessor$Type$ extends jni$_.JType<AudioProcessor> {
+  @jni$_.internal
+  const $AudioProcessor$Type$();
+
+  @jni$_.internal
+  @core$_.override
+  String get signature => r'Landroidx/media3/common/audio/AudioProcessor;';
+
+  @jni$_.internal
+  @core$_.override
+  AudioProcessor fromReference(jni$_.JReference reference) =>
+      AudioProcessor.fromReference(reference);
+  @jni$_.internal
+  @core$_.override
+  jni$_.JType get superType => const jni$_.$JObject$NullableType$();
+
+  @jni$_.internal
+  @core$_.override
+  jni$_.JType<AudioProcessor?> get nullableType =>
+      const $AudioProcessor$NullableType$();
+
+  @jni$_.internal
+  @core$_.override
+  final superCount = 1;
+
+  @core$_.override
+  int get hashCode => ($AudioProcessor$Type$).hashCode;
+
+  @core$_.override
+  bool operator ==(Object other) {
+    return other.runtimeType == ($AudioProcessor$Type$) &&
+        other is $AudioProcessor$Type$;
   }
 }
 

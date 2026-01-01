@@ -90,6 +90,7 @@ extern NSString *const AVAssetExportPresetHighestQuality;
 @interface AVAssetTrack : NSObject
 @property(readonly) CGSize naturalSize;
 @property(readonly) CGAffineTransform preferredTransform;
+@property(readonly) float nominalFrameRate;
 @end
 
 @interface AVAsset : NSObject
@@ -132,12 +133,30 @@ extern NSString *const AVAssetExportPresetHighestQuality;
 + (instancetype)videoComposition;
 @end
 
+@interface AVAudioMix : NSObject
+@end
+
+@interface AVMutableAudioMix : AVAudioMix
+@property(copy) NSArray *inputParameters;
++ (instancetype)audioMix;
+@end
+
+@interface AVAudioMixInputParameters : NSObject
+@end
+
+@interface AVMutableAudioMixInputParameters : AVAudioMixInputParameters
+@property(retain) AVAssetTrack *track;
++ (instancetype)audioMixInputParametersWithTrack:(AVAssetTrack *)track;
+- (void)setVolume:(float)volume atTime:(CMTime)time;
+@end
+
 @interface AVAssetExportSession : NSObject
 + (instancetype)exportSessionWithAsset:(AVAsset *)asset
                             presetName:(NSString *)presetName;
 @property(nonatomic, copy) NSURL *outputURL;
 @property(nonatomic, copy) NSString *outputFileType;
 @property(copy) AVVideoComposition *videoComposition;
+@property(copy) AVAudioMix *audioMix;
 - (void)exportAsynchronouslyWithCompletionHandler:(void *)handler;
 @property(readonly) AVAssetExportSessionStatus status;
 @property(readonly) NSError *error;

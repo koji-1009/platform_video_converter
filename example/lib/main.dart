@@ -34,6 +34,11 @@ class _MyPageState extends State<MyPage> {
   String _statusMessage = '';
   VideoPlayerController? _controller;
 
+  // Config State
+  int? _fps;
+  bool _isMuted = false;
+  double _volume = 1.0;
+
   final _platformServices = getPlatformServices();
 
   Future<void> _pickVideo() async {
@@ -79,9 +84,12 @@ class _MyPageState extends State<MyPage> {
         format: VideoFormat.mp4,
         startTime: const Duration(seconds: 0),
         endTime: const Duration(seconds: 5), // Clip to 5s for example
-        width: 640, // Example resize
+        width: 640,
         height: 360,
-        bitrate: 1000000, // 1Mbps
+        bitrate: 1000000,
+        fps: _fps,
+        isMuted: _isMuted,
+        scale: _volume,
       );
 
       // Perform conversion
@@ -147,7 +155,54 @@ class _MyPageState extends State<MyPage> {
                   onPressed: _isConverting || _inputVideo == null
                       ? null
                       : _convertVideo,
-                  child: const Text('Convert (5s, 640x360)'),
+                  child: const Text('Convert'),
+                ),
+              ],
+            ),
+            // Config Controls
+            Wrap(
+              spacing: 16,
+              runSpacing: 16,
+              alignment: WrapAlignment.center,
+              children: [
+                Column(
+                  children: [
+                    const Text("FPS"),
+                    DropdownButton<int?>(
+                      value: _fps,
+                      items: const [
+                        DropdownMenuItem(value: null, child: Text("Default")),
+                        DropdownMenuItem(value: 15, child: Text("15")),
+                        DropdownMenuItem(value: 24, child: Text("24")),
+                        DropdownMenuItem(value: 30, child: Text("30")),
+                        DropdownMenuItem(value: 60, child: Text("60")),
+                      ],
+                      onChanged: (v) => setState(() => _fps = v),
+                    ),
+                  ],
+                ),
+                Column(
+                  children: [
+                    const Text("Mute"),
+                    Switch(
+                      value: _isMuted,
+                      onChanged: (v) => setState(() => _isMuted = v),
+                    ),
+                  ],
+                ),
+                Column(
+                  children: [
+                    Text("Volume: ${_volume.toStringAsFixed(1)}x"),
+                    Slider(
+                      value: _volume,
+                      min: 0.0,
+                      max: 2.0,
+                      divisions: 20,
+                      onChanged: _isMuted
+                          ? null
+                          : (v) => setState(() => _volume = v),
+                    ),
+                  ],
                 ),
               ],
             ),

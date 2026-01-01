@@ -21,7 +21,8 @@ final class VideoConverterWeb implements VideoConverterPlatform {
     final videoElement =
         web.document.createElement('video') as web.HTMLVideoElement
           ..src = url
-          ..muted = true
+          ..muted =
+              true // Start muted, unmute for capture if needed
           ..autoplay = false
           ..crossOrigin = "anonymous";
 
@@ -80,8 +81,40 @@ final class VideoConverterWeb implements VideoConverterPlatform {
 
     videoElement.currentTime = startSeconds;
 
-    // Create Stream from Canvas
-    final stream = canvas.captureStream(30);
+    // Create Stream from Canvas (Video)
+    // If config.fps is set, use it for captureStream.
+    final stream = canvas.captureStream(config.fps?.toDouble() ?? 30);
+
+    // Audio Handling
+    web.AudioContext? audioContext;
+    web.MediaStreamAudioDestinationNode? audioDestination;
+
+    if (!config.isMuted) {
+      try {
+        videoElement.muted = false; // Must be unmuted to capture audio
+        videoElement.volume = 1.0;
+
+        audioContext = web.AudioContext();
+        final source = audioContext.createMediaElementSource(videoElement);
+        final gainNode = audioContext.createGain();
+
+        gainNode.gain.value = config.scale;
+
+        audioDestination = audioContext.createMediaStreamDestination();
+
+        source.connect(gainNode);
+        gainNode.connect(audioDestination);
+
+        // Add audio track to stream
+        final audioTracks = audioDestination.stream.getAudioTracks();
+        if (audioTracks.length > 0) {
+          stream.addTrack(audioTracks[0]);
+        }
+      } catch (e) {
+        // Fallback or ignore if AudioContext fails (e.g. strict autoplay policy)
+        print("Web Audio setup failed: $e");
+      }
+    }
 
     // Setup MediaRecorder
     const mimeType = 'video/mp4';
@@ -95,7 +128,7 @@ final class VideoConverterWeb implements VideoConverterPlatform {
 
     final options = web.MediaRecorderOptions(
       mimeType: mimeType,
-      videoBitsPerSecond: config.bitrate ?? 2500000, // Default 2.5Mbps
+      videoBitsPerSecond: config.bitrate ?? 2500000,
     );
 
     final recorder = web.MediaRecorder(stream, options);
@@ -119,6 +152,12 @@ final class VideoConverterWeb implements VideoConverterPlatform {
 
     final processingCompleter = Completer<void>();
 
+    // FPS Control
+    // FPS Control
+    // If null, we want max speed (e.g. 60).
+    final frameInterval = 1000.0 / (config.fps ?? 60.0);
+    double lastFrameTime = 0;
+
     void processFrame(num time) {
       if (videoElement.paused || videoElement.ended) {
         if (!processingCompleter.isCompleted) {
@@ -138,7 +177,11 @@ final class VideoConverterWeb implements VideoConverterPlatform {
         return;
       }
 
-      ctx.drawImage(videoElement, 0, 0, targetWidth, targetHeight);
+      // Throttling
+      if (time - lastFrameTime >= frameInterval) {
+        ctx.drawImage(videoElement, 0, 0, targetWidth, targetHeight);
+        lastFrameTime = time.toDouble();
+      }
 
       web.window.requestAnimationFrame(processFrame.toJS);
     }
@@ -147,6 +190,11 @@ final class VideoConverterWeb implements VideoConverterPlatform {
 
     await processingCompleter.future;
     await recordingCompleter.future;
+
+    // Cleanup Audio
+    if (audioContext != null) {
+      audioContext.close();
+    }
 
     // Create final blob
     final finalBlob = web.Blob(

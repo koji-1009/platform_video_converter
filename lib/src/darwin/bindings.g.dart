@@ -155,6 +155,37 @@ final _objc_msgSend_g23os4Stret = objc.msgSendStretPointer
         ffi.Pointer<objc.ObjCSelector>,
       )
     >();
+late final _sel_nominalFrameRate = objc.registerName("nominalFrameRate");
+final _objc_msgSend_2cgrxl = objc.msgSendPointer
+    .cast<
+      ffi.NativeFunction<
+        ffi.Float Function(
+          ffi.Pointer<objc.ObjCObjectImpl>,
+          ffi.Pointer<objc.ObjCSelector>,
+        )
+      >
+    >()
+    .asFunction<
+      double Function(
+        ffi.Pointer<objc.ObjCObjectImpl>,
+        ffi.Pointer<objc.ObjCSelector>,
+      )
+    >();
+final _objc_msgSend_2cgrxlFpret = objc.msgSendFpretPointer
+    .cast<
+      ffi.NativeFunction<
+        ffi.Float Function(
+          ffi.Pointer<objc.ObjCObjectImpl>,
+          ffi.Pointer<objc.ObjCSelector>,
+        )
+      >
+    >()
+    .asFunction<
+      double Function(
+        ffi.Pointer<objc.ObjCObjectImpl>,
+        ffi.Pointer<objc.ObjCSelector>,
+      )
+    >();
 typedef instancetype = ffi.Pointer<objc.ObjCObjectImpl>;
 typedef Dartinstancetype = objc.ObjCObject;
 late final _sel_alloc = objc.registerName("alloc");
@@ -230,6 +261,13 @@ extension AVAssetTrack$Methods on AVAssetTrack {
       finalizer: pkg_ffi.calloc.nativeFree,
     );
     return ffi.Struct.create<objc.CGSize>($finalizable);
+  }
+
+  /// nominalFrameRate
+  double get nominalFrameRate {
+    return objc.useMsgSendVariants
+        ? _objc_msgSend_2cgrxlFpret(object$.ref.pointer, _sel_nominalFrameRate)
+        : _objc_msgSend_2cgrxl(object$.ref.pointer, _sel_nominalFrameRate);
   }
 
   /// preferredTransform
@@ -943,36 +981,6 @@ final _objc_msgSend_bfocsk = objc.msgSendPointer
       )
     >();
 late final _sel_renderScale = objc.registerName("renderScale");
-final _objc_msgSend_2cgrxl = objc.msgSendPointer
-    .cast<
-      ffi.NativeFunction<
-        ffi.Float Function(
-          ffi.Pointer<objc.ObjCObjectImpl>,
-          ffi.Pointer<objc.ObjCSelector>,
-        )
-      >
-    >()
-    .asFunction<
-      double Function(
-        ffi.Pointer<objc.ObjCObjectImpl>,
-        ffi.Pointer<objc.ObjCSelector>,
-      )
-    >();
-final _objc_msgSend_2cgrxlFpret = objc.msgSendFpretPointer
-    .cast<
-      ffi.NativeFunction<
-        ffi.Float Function(
-          ffi.Pointer<objc.ObjCObjectImpl>,
-          ffi.Pointer<objc.ObjCSelector>,
-        )
-      >
-    >()
-    .asFunction<
-      double Function(
-        ffi.Pointer<objc.ObjCObjectImpl>,
-        ffi.Pointer<objc.ObjCSelector>,
-      )
-    >();
 late final _sel_setRenderScale_ = objc.registerName("setRenderScale:");
 final _objc_msgSend_v5hmet = objc.msgSendPointer
     .cast<
@@ -1147,6 +1155,302 @@ extension AVMutableVideoComposition$Methods on AVMutableVideoComposition {
   }
 }
 
+late final _class_AVAudioMix = objc.getClass("AVAudioMix");
+
+/// AVAudioMix
+extension type AVAudioMix._(objc.ObjCObject object$)
+    implements objc.ObjCObject, objc.NSObject {
+  /// Constructs a [AVAudioMix] that points to the same underlying object as [other].
+  AVAudioMix.as(objc.ObjCObject other) : object$ = other {
+    assert(isA(object$));
+  }
+
+  /// Constructs a [AVAudioMix] that wraps the given raw object pointer.
+  AVAudioMix.fromPointer(
+    ffi.Pointer<objc.ObjCObjectImpl> other, {
+    bool retain = false,
+    bool release = false,
+  }) : object$ = objc.ObjCObject(other, retain: retain, release: release) {
+    assert(isA(object$));
+  }
+
+  /// Returns whether [obj] is an instance of [AVAudioMix].
+  static bool isA(objc.ObjCObject obj) => _objc_msgSend_19nvye5(
+    obj.ref.pointer,
+    _sel_isKindOfClass_,
+    _class_AVAudioMix,
+  );
+
+  /// alloc
+  static AVAudioMix alloc() {
+    final $ret = _objc_msgSend_151sglz(_class_AVAudioMix, _sel_alloc);
+    return AVAudioMix.fromPointer($ret, retain: false, release: true);
+  }
+}
+
+extension AVAudioMix$Methods on AVAudioMix {
+  /// init
+  AVAudioMix init() {
+    final $ret = _objc_msgSend_151sglz(
+      object$.ref.retainAndReturnPointer(),
+      _sel_init,
+    );
+    return AVAudioMix.fromPointer($ret, retain: false, release: true);
+  }
+}
+
+late final _class_AVMutableAudioMix = objc.getClass("AVMutableAudioMix");
+late final _sel_inputParameters = objc.registerName("inputParameters");
+late final _sel_setInputParameters_ = objc.registerName("setInputParameters:");
+late final _sel_audioMix = objc.registerName("audioMix");
+
+/// AVMutableAudioMix
+extension type AVMutableAudioMix._(objc.ObjCObject object$)
+    implements objc.ObjCObject, AVAudioMix {
+  /// Constructs a [AVMutableAudioMix] that points to the same underlying object as [other].
+  AVMutableAudioMix.as(objc.ObjCObject other) : object$ = other {
+    assert(isA(object$));
+  }
+
+  /// Constructs a [AVMutableAudioMix] that wraps the given raw object pointer.
+  AVMutableAudioMix.fromPointer(
+    ffi.Pointer<objc.ObjCObjectImpl> other, {
+    bool retain = false,
+    bool release = false,
+  }) : object$ = objc.ObjCObject(other, retain: retain, release: release) {
+    assert(isA(object$));
+  }
+
+  /// Returns whether [obj] is an instance of [AVMutableAudioMix].
+  static bool isA(objc.ObjCObject obj) => _objc_msgSend_19nvye5(
+    obj.ref.pointer,
+    _sel_isKindOfClass_,
+    _class_AVMutableAudioMix,
+  );
+
+  /// alloc
+  static AVMutableAudioMix alloc() {
+    final $ret = _objc_msgSend_151sglz(_class_AVMutableAudioMix, _sel_alloc);
+    return AVMutableAudioMix.fromPointer($ret, retain: false, release: true);
+  }
+
+  /// audioMix
+  static AVMutableAudioMix audioMix() {
+    final $ret = _objc_msgSend_151sglz(_class_AVMutableAudioMix, _sel_audioMix);
+    return AVMutableAudioMix.fromPointer($ret, retain: true, release: true);
+  }
+}
+
+extension AVMutableAudioMix$Methods on AVMutableAudioMix {
+  /// init
+  AVMutableAudioMix init() {
+    final $ret = _objc_msgSend_151sglz(
+      object$.ref.retainAndReturnPointer(),
+      _sel_init,
+    );
+    return AVMutableAudioMix.fromPointer($ret, retain: false, release: true);
+  }
+
+  /// inputParameters
+  objc.NSArray get inputParameters {
+    final $ret = _objc_msgSend_151sglz(
+      object$.ref.pointer,
+      _sel_inputParameters,
+    );
+    return objc.NSArray.fromPointer($ret, retain: true, release: true);
+  }
+
+  /// setInputParameters:
+  set inputParameters(objc.NSArray value) {
+    _objc_msgSend_xtuoz7(
+      object$.ref.pointer,
+      _sel_setInputParameters_,
+      value.ref.pointer,
+    );
+  }
+}
+
+late final _class_AVAudioMixInputParameters = objc.getClass(
+  "AVAudioMixInputParameters",
+);
+
+/// AVAudioMixInputParameters
+extension type AVAudioMixInputParameters._(objc.ObjCObject object$)
+    implements objc.ObjCObject, objc.NSObject {
+  /// Constructs a [AVAudioMixInputParameters] that points to the same underlying object as [other].
+  AVAudioMixInputParameters.as(objc.ObjCObject other) : object$ = other {
+    assert(isA(object$));
+  }
+
+  /// Constructs a [AVAudioMixInputParameters] that wraps the given raw object pointer.
+  AVAudioMixInputParameters.fromPointer(
+    ffi.Pointer<objc.ObjCObjectImpl> other, {
+    bool retain = false,
+    bool release = false,
+  }) : object$ = objc.ObjCObject(other, retain: retain, release: release) {
+    assert(isA(object$));
+  }
+
+  /// Returns whether [obj] is an instance of [AVAudioMixInputParameters].
+  static bool isA(objc.ObjCObject obj) => _objc_msgSend_19nvye5(
+    obj.ref.pointer,
+    _sel_isKindOfClass_,
+    _class_AVAudioMixInputParameters,
+  );
+
+  /// alloc
+  static AVAudioMixInputParameters alloc() {
+    final $ret = _objc_msgSend_151sglz(
+      _class_AVAudioMixInputParameters,
+      _sel_alloc,
+    );
+    return AVAudioMixInputParameters.fromPointer(
+      $ret,
+      retain: false,
+      release: true,
+    );
+  }
+}
+
+extension AVAudioMixInputParameters$Methods on AVAudioMixInputParameters {
+  /// init
+  AVAudioMixInputParameters init() {
+    final $ret = _objc_msgSend_151sglz(
+      object$.ref.retainAndReturnPointer(),
+      _sel_init,
+    );
+    return AVAudioMixInputParameters.fromPointer(
+      $ret,
+      retain: false,
+      release: true,
+    );
+  }
+}
+
+late final _class_AVMutableAudioMixInputParameters = objc.getClass(
+  "AVMutableAudioMixInputParameters",
+);
+late final _sel_track = objc.registerName("track");
+late final _sel_setTrack_ = objc.registerName("setTrack:");
+late final _sel_audioMixInputParametersWithTrack_ = objc.registerName(
+  "audioMixInputParametersWithTrack:",
+);
+late final _sel_setVolume_atTime_ = objc.registerName("setVolume:atTime:");
+final _objc_msgSend_10ykf3e = objc.msgSendPointer
+    .cast<
+      ffi.NativeFunction<
+        ffi.Void Function(
+          ffi.Pointer<objc.ObjCObjectImpl>,
+          ffi.Pointer<objc.ObjCSelector>,
+          ffi.Float,
+          CMTime,
+        )
+      >
+    >()
+    .asFunction<
+      void Function(
+        ffi.Pointer<objc.ObjCObjectImpl>,
+        ffi.Pointer<objc.ObjCSelector>,
+        double,
+        CMTime,
+      )
+    >();
+
+/// AVMutableAudioMixInputParameters
+extension type AVMutableAudioMixInputParameters._(objc.ObjCObject object$)
+    implements objc.ObjCObject, AVAudioMixInputParameters {
+  /// Constructs a [AVMutableAudioMixInputParameters] that points to the same underlying object as [other].
+  AVMutableAudioMixInputParameters.as(objc.ObjCObject other) : object$ = other {
+    assert(isA(object$));
+  }
+
+  /// Constructs a [AVMutableAudioMixInputParameters] that wraps the given raw object pointer.
+  AVMutableAudioMixInputParameters.fromPointer(
+    ffi.Pointer<objc.ObjCObjectImpl> other, {
+    bool retain = false,
+    bool release = false,
+  }) : object$ = objc.ObjCObject(other, retain: retain, release: release) {
+    assert(isA(object$));
+  }
+
+  /// Returns whether [obj] is an instance of [AVMutableAudioMixInputParameters].
+  static bool isA(objc.ObjCObject obj) => _objc_msgSend_19nvye5(
+    obj.ref.pointer,
+    _sel_isKindOfClass_,
+    _class_AVMutableAudioMixInputParameters,
+  );
+
+  /// alloc
+  static AVMutableAudioMixInputParameters alloc() {
+    final $ret = _objc_msgSend_151sglz(
+      _class_AVMutableAudioMixInputParameters,
+      _sel_alloc,
+    );
+    return AVMutableAudioMixInputParameters.fromPointer(
+      $ret,
+      retain: false,
+      release: true,
+    );
+  }
+
+  /// audioMixInputParametersWithTrack:
+  static AVMutableAudioMixInputParameters audioMixInputParametersWithTrack(
+    AVAssetTrack track,
+  ) {
+    final $ret = _objc_msgSend_1sotr3r(
+      _class_AVMutableAudioMixInputParameters,
+      _sel_audioMixInputParametersWithTrack_,
+      track.ref.pointer,
+    );
+    return AVMutableAudioMixInputParameters.fromPointer(
+      $ret,
+      retain: true,
+      release: true,
+    );
+  }
+}
+
+extension AVMutableAudioMixInputParameters$Methods
+    on AVMutableAudioMixInputParameters {
+  /// init
+  AVMutableAudioMixInputParameters init() {
+    final $ret = _objc_msgSend_151sglz(
+      object$.ref.retainAndReturnPointer(),
+      _sel_init,
+    );
+    return AVMutableAudioMixInputParameters.fromPointer(
+      $ret,
+      retain: false,
+      release: true,
+    );
+  }
+
+  /// setTrack:
+  set track(AVAssetTrack value) {
+    _objc_msgSend_xtuoz7(
+      object$.ref.pointer,
+      _sel_setTrack_,
+      value.ref.pointer,
+    );
+  }
+
+  /// setVolume:atTime:
+  void setVolume(double volume, {required CMTime atTime}) {
+    _objc_msgSend_10ykf3e(
+      object$.ref.pointer,
+      _sel_setVolume_atTime_,
+      volume,
+      atTime,
+    );
+  }
+
+  /// track
+  AVAssetTrack get track {
+    final $ret = _objc_msgSend_151sglz(object$.ref.pointer, _sel_track);
+    return AVAssetTrack.fromPointer($ret, retain: true, release: true);
+  }
+}
+
 late final _class_AVAssetExportSession = objc.getClass("AVAssetExportSession");
 late final _sel_exportSessionWithAsset_presetName_ = objc.registerName(
   "exportSessionWithAsset:presetName:",
@@ -1158,6 +1462,7 @@ late final _sel_setOutputFileType_ = objc.registerName("setOutputFileType:");
 late final _sel_setVideoComposition_ = objc.registerName(
   "setVideoComposition:",
 );
+late final _sel_setAudioMix_ = objc.registerName("setAudioMix:");
 late final _sel_exportAsynchronouslyWithCompletionHandler_ = objc.registerName(
   "exportAsynchronouslyWithCompletionHandler:",
 );
@@ -1242,6 +1547,12 @@ extension type AVAssetExportSession._(objc.ObjCObject object$)
 }
 
 extension AVAssetExportSession$Methods on AVAssetExportSession {
+  /// audioMix
+  AVAudioMix get audioMix {
+    final $ret = _objc_msgSend_151sglz(object$.ref.pointer, _sel_audioMix);
+    return AVAudioMix.fromPointer($ret, retain: true, release: true);
+  }
+
   /// error
   objc.NSError get error {
     final $ret = _objc_msgSend_151sglz(object$.ref.pointer, _sel_error);
@@ -1281,6 +1592,15 @@ extension AVAssetExportSession$Methods on AVAssetExportSession {
   objc.NSURL get outputURL {
     final $ret = _objc_msgSend_151sglz(object$.ref.pointer, _sel_outputURL);
     return objc.NSURL.fromPointer($ret, retain: true, release: true);
+  }
+
+  /// setAudioMix:
+  set audioMix(AVAudioMix value) {
+    _objc_msgSend_xtuoz7(
+      object$.ref.pointer,
+      _sel_setAudioMix_,
+      value.ref.pointer,
+    );
   }
 
   /// setOutputFileType:

@@ -51,7 +51,7 @@ class VideoConverterAndroid implements VideoConverterPlatform {
       final mediaItem = mediaItemBuilder.build()!..releasedBy(arena);
 
       // 2. Prepare Effects (Resolution)
-      final audioProcessors = JList.array(JObject.nullableType)
+      final audioProcessors = JList.array(AudioProcessor.type)
         ..releasedBy(arena);
       final effectsList = JList.array(Effect.type)..releasedBy(arena);
 
@@ -75,11 +75,37 @@ class VideoConverterAndroid implements VideoConverterPlatform {
 
       final effects = Effects(audioProcessors, effectsList)..releasedBy(arena);
 
-      // 3. Create EditedMediaItem
+      // 3. Prepare Audio Processors (Volume)
+      // Note: Volume control requires more complex binding (ChannelMixingAudioProcessor matrix).
+      // For now, only mute is supported.
+      if (config.scale != 1.0 && !config.isMuted) {
+        // Assume Stereo (2 channels) for scaling.
+        // If input is not Stereo, this might fail or require different matrix.
+        // Coefficients: [scale, 0, 0, scale] for 2x2 identity scaling.
+        final coeffs = JFloatArray(4);
+        coeffs[0] = config.scale.toDouble();
+        coeffs[1] = 0.0;
+        coeffs[2] = 0.0;
+        coeffs[3] = config.scale.toDouble();
+
+        final matrix = ChannelMixingMatrix(2, 2, coeffs)..releasedBy(arena);
+
+        final processor = ChannelMixingAudioProcessor()..releasedBy(arena);
+        processor.putChannelMixingMatrix(matrix);
+
+        // ChannelMixingAudioProcessor implements AudioProcessor (interface), so we cast.
+        audioProcessors.add(AudioProcessor.fromReference(processor.reference));
+      }
+
+      // 4. Create EditedMediaItem
       final editedMediaItemBuilder = EditedMediaItem$Builder(mediaItem)
         ..releasedBy(arena);
 
       editedMediaItemBuilder.setEffects(effects);
+
+      if (config.isMuted) {
+        editedMediaItemBuilder.setRemoveAudio(true);
+      }
 
       final editedMediaItem = editedMediaItemBuilder.build()!
         ..releasedBy(arena);
@@ -88,11 +114,16 @@ class VideoConverterAndroid implements VideoConverterPlatform {
       final transformerBuilder = Transformer$Builder(contextObj)
         ..releasedBy(arena);
 
-      if (config.bitrate != null) {
+      if (config.bitrate != null || config.fps != null) {
         final encoderSettingsBuilder = VideoEncoderSettings$Builder()
           ..releasedBy(arena);
 
-        encoderSettingsBuilder.setBitrate(config.bitrate!);
+        if (config.bitrate != null) {
+          encoderSettingsBuilder.setBitrate(config.bitrate!);
+        }
+        if (config.fps != null) {
+          encoderSettingsBuilder.setFrameRate(config.fps!.toDouble());
+        }
 
         final encoderSettings = encoderSettingsBuilder.build()!
           ..releasedBy(arena);
